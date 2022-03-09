@@ -92,8 +92,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <span>Danh mục sản phẩm</span>
                             </a>
                             <ul class="sub">
-                                <li><a href="typography.html">Liệt kê sản phẩm</a></li>
-                                <li><a href="glyphicon.html">Thêm sản phẩm</a></li>
+                                <li><a href="{{URL::to('/all-category')}}">Liệt kê danh mục sản phẩm</a></li>
+                                <li><a href="{{URL::to('/add-category')}}">Thêm danh mục sản phẩm</a></li>
                             </ul>
                         </li>
                     </ul>
