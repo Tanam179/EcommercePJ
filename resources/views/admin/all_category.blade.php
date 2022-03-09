@@ -47,9 +47,9 @@
               <td>Idrawfast prototype design prototype design prototype design prototype design prototype design</td>
               <td><span class="text-ellipsis">Ẩn / Hiển thị</span></td>
               <td><span class="text-ellipsis">{item.PrHelpText1}</span></td>
-              <td style="display: flex">
-                <a href="" class="active" ui-toggle-class=""><i class="fa fa-check text-success text-active"></i></a>
-                <a style="margin-left: 10px" href="" class="active" ui-toggle-class=""><i class="fa fa-times text-danger text"></i></a>
+              <td style="display: flex; font-size: 20px">
+                <a href="" class="active" ui-toggle-class=""><i style="color: #12b886;" class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                <a style="margin-left: 10px" href="" class="active" ui-toggle-class=""><i style="color: red;" class="fa fa-trash-o" aria-hidden="true"></i></a>
                 
               </td>
             </tr>

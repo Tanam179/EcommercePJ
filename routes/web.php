@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController; 
 use App\Http\Controllers\AdminController; 
-use App\Http\Controllers\CategoryProduct; 
+use App\Http\Controllers\CategoryController; 
 
 /*
 |--------------------------------------------------------------------------
@@ -24,5 +24,6 @@ Route::get('/dashboard',[AdminController::class, 'showDashboard']);
 
 
 //CATEGORY
-Route::get('/add-category', [CategoryProduct::class, 'add_category']);
-Route::get('/all-category', [CategoryProduct::class, 'all_category']);
+Route::get('/add-category', [CategoryController::class, 'add_category']);
+Route::get('/all-category', [CategoryController::class, 'all_category']);
+Route::post('/save-category-product', [CategoryController::class, 'save_category_product']);
