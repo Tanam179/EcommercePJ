@@ -16,6 +16,7 @@ html, body{
     background: url("../images/adminImg/bg.jpg") no-repeat 0px 0px;
 	background-size:cover;
     background-position: center;
+    min-height: 100vh;
 }
 body a{
 	transition: 0.5s all ease;
