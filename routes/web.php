@@ -19,8 +19,10 @@ use App\Http\Controllers\CategoryController;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/trang-chu', [HomeController::class, 'index']);
 
+//ADMIN
 Route::get('/admin',[AdminController::class, 'index']);
 Route::get('/dashboard',[AdminController::class, 'showDashboard']);
+Route::post('/admin-dashboard', [AdminController::class, 'dashboard']);
 
 
 //CATEGORY

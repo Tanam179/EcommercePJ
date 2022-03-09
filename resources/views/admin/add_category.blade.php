@@ -2,6 +2,7 @@
 @section('admin_content')
 <div class="col-lg-12">
     <section class="panel">
+        @error("category_product_name") {{$mesage}}@enderror
         <header class="panel-heading">
             Thêm Danh Mục Sản Phẩm
         </header>

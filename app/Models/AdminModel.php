@@ -5,14 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-
-class CategoryModel extends Model
+class AdminModel extends Model
 {
     use HasFactory;
-
-
-    protected $table = "category_product";
+    protected $table = "admin";
     protected $fillable = [
-        'category_name', 'category_desc', 'category_status'
+        'admin_email', 'admin_phone', 'admin_name', 'admin_password'
     ];
 }

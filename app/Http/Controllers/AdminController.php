@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Models\AdminModel;
 
 class AdminController extends Controller
 {
@@ -12,5 +13,9 @@ class AdminController extends Controller
 
     public function showDashboard() {
         return view('admin.dashboard');
+    }
+
+    public function dashboard(Request $request){
+
     }
 }
