@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Session;
 use Illuminate\Http\Request;
 use App\Models\CategoryModel;
@@ -22,6 +23,17 @@ class CategoryController extends Controller
         return view('admin_layout')->with('admin.all_category', $manager_category_product);
     }
 
+    public function active_category($category_id) {
+        CategoryModel::where('category_id', $category_id)->update(['category_status' => 1]);
+        return redirect('all-category');
+    }
+
+    public function unactive_category($category_id) {
+        CategoryModel::where('category_id', $category_id)->update(['category_status' => 0]);
+        return redirect('all-category');
+    }
+
+
     public function save_category_product(Request $request)
     {
         // $validator = Validator::make($request->all(), [
@@ -31,14 +43,14 @@ class CategoryController extends Controller
         //     return back()->withErrors($validator->getMessageBag())->status(400);
         // }
         // else{
-            CategoryModel::create([
-                'category_name' => $request->category_product_name,
-                'category_desc' => $request->category_product_desc,
-                'category_status' => $request->category_product_status,
-                
-            ]);
-            
-            return redirect()->back()->with('message', 'Thêm danh mục sản phẩm thành công');
+        CategoryModel::create([
+            'category_name' => $request->category_product_name,
+            'category_desc' => $request->category_product_desc,
+            'category_status' => $request->category_product_status,
+
+        ]);
+
+        return redirect()->back()->with('message', 'Thêm danh mục sản phẩm thành công');
         // }
     }
 }

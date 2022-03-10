@@ -36,9 +36,9 @@
                 </label>
               </th>
               <th>Tên danh mục</th>
-              <th>Hiển thị</th>
               <th>Mô tả</th>
               <th>Ngày thêm</th>
+              <th>Trạng thái</th>
               <th>Tùy chọn</th>
             </tr>
           </thead>
@@ -47,9 +47,22 @@
             <tr>
               <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
               <td>{{$cate_pro->category_name}}</td>
-              <td><span class="text-ellipsis">{{$cate_pro->category_status}}</span></td>
               <td><span class="text-ellipsis">{{$cate_pro->category_desc}}</span></td>
-              <td><span class="text-ellipsis">{{$cate_pro->created_at}}</span></td>
+              <td><span class="text-ellipsis">{{$cate_pro->created_at->format('d/m/Y')}}</span></td>
+              <td><span class="text-ellipsis">
+                <?php
+                if($cate_pro->category_status == false){
+                  ?>
+                  <a href="{{URL::to('/active-category/'.$cate_pro->category_id)}}"><span style="color: #999">Ẩn</span></a>
+                  <?php
+                }
+                else {
+                  ?>
+                  <a href="{{URL::to('/unactive-category/'.$cate_pro->category_id)}}"><span style="color: #999">Hiển thị</span></a>
+                  <?php
+                }
+                ?>
+              </span></td>
               <td style="display: flex; font-size: 20px">
                 <a href="{{URL::to('/edit-category-product')}}" class="active" ui-toggle-class=""><i style="color: #12b886;" class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                 <a style="margin-left: 10px" href="" class="active" ui-toggle-class=""><i style="color: #f03e3e;" class="fa fa-trash-o" aria-hidden="true"></i></a>
