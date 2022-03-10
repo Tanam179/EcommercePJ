@@ -3,6 +3,7 @@
 <div class="col-lg-12">
     <section class="panel">
         {{-- @error("category_product_name") {{$mesage}}@enderror --}}
+        
         <header class="panel-heading">
             Thêm Danh Mục Sản Phẩm
         </header>
@@ -16,13 +17,20 @@
                 @endif
                 <form  role="form" action="{{URL::to('/save-category-product')}}" method="POST">
                     @csrf
+                    
                 <div class="form-group">
                     <label for="exampleInputEmail1">Tên danh mục</label>
-                    <input type="text" name="category_product_name" class="form-control" id="exampleInputEmail1" placeholder="Tên danh mục">
+                    @error('category_product_name')
+                    <span style="color: red; font-size: 15px; margin-right: 10px;">{{$message}}</span>
+                    @enderror
+                    <input type="text" name="category_product_name" class="form-control" id="exampleInputEmail1" placeholder="Tên danh mục" value="{{old('category_product_name')}}">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Mô tả danh mục</label>
-                    <textarea style="resize: none" rows="10" class="form-control" name="category_product_desc" id="exampleInputPassword1" placeholder="Mô tả danh mục"></textarea>
+                    @error('category_product_desc')
+                    <span style="color: red; font-size: 15px; margin-right: 10px;">{{$message}}</span>
+                    @enderror
+                    <textarea style="resize: none" rows="10" class="form-control" name="category_product_desc" id="exampleInputPassword1" placeholder="Mô tả danh mục">{{old('category_product_desc')}}</textarea>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Trạng thái danh mục</label>
