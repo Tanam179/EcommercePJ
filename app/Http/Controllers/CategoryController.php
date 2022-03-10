@@ -37,13 +37,13 @@ class CategoryController extends Controller
 
     public function save_category_product(Request $request)
     {
-        // $validator = Validator::make($request->all(), [
-        //     "category_product_name" => "required"
-        // ]);
-        // if ($validator->fails()) {
-        //     return back()->withErrors($validator->getMessageBag())->status(400);
-        // }
-        // else{
+        $validator = Validator::make($request->all(), [
+            "category_product_name" => "required",
+            "category_product_desc" => "required",
+        ]);
+        if ($validator->fails()) {
+            return back()->withErrors($validator->getMessageBag())/*->status(400)*/;
+        }
         CategoryModel::create([
             'category_name' => $request->category_product_name,
             'category_desc' => $request->category_product_desc,
@@ -51,7 +51,6 @@ class CategoryController extends Controller
         ]);
 
         return redirect()->back()->with('message', 'Thêm danh mục sản phẩm thành công');
-        // }
     }
 
     public function edit_category_product($category_id)
