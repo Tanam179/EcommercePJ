@@ -43,6 +43,11 @@
             </tr>
           </thead>
           <tbody>
+            @if (session('message'))
+                    <span  style="color: #12b886; font-size: 15px; display: inline-block; margin-left: 18px;">
+                        {{ session()->get('message') }}
+                    </span>
+                @endif
             @foreach($all_category_product as $cate_pro)
             <tr>
               <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>

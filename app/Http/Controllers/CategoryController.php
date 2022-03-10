@@ -25,12 +25,13 @@ class CategoryController extends Controller
 
     public function active_category($category_id) {
         CategoryModel::where('category_id', $category_id)->update(['category_status' => 1]);
-        return redirect('all-category');
+        return redirect()->back()->with('message', 'Cập nhật hiển thị danh mục sản phẩm thành công');
+
     }
 
     public function unactive_category($category_id) {
         CategoryModel::where('category_id', $category_id)->update(['category_status' => 0]);
-        return redirect('all-category');
+        return redirect()->back()->with('message', 'Cập nhật ẩn danh mục sản phẩm thành công');
     }
 
 
@@ -47,7 +48,6 @@ class CategoryController extends Controller
             'category_name' => $request->category_product_name,
             'category_desc' => $request->category_product_desc,
             'category_status' => $request->category_product_status,
-
         ]);
 
         return redirect()->back()->with('message', 'Thêm danh mục sản phẩm thành công');
