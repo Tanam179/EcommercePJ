@@ -37,33 +37,35 @@
               </th>
               <th>Tên danh mục</th>
               <th>Hiển thị</th>
+              <th>Mô tả</th>
               <th>Ngày thêm</th>
-              <th style="width:30px;"></th>
+              <th>Tùy chọn</th>
             </tr>
           </thead>
           <tbody>
+            @foreach($all_category_product as $cate_pro)
             <tr>
               <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
-              <td>Idrawfast prototype design prototype design prototype design prototype design prototype design</td>
-              <td><span class="text-ellipsis">Ẩn / Hiển thị</span></td>
-              <td><span class="text-ellipsis">{item.PrHelpText1}</span></td>
+              <td>{{$cate_pro->category_name}}</td>
+              <td><span class="text-ellipsis">{{$cate_pro->category_status}}</span></td>
+              <td><span class="text-ellipsis">{{$cate_pro->category_desc}}</span></td>
+              <td><span class="text-ellipsis">{{$cate_pro->created_at}}</span></td>
               <td style="display: flex; font-size: 20px">
-                <a href="" class="active" ui-toggle-class=""><i style="color: #12b886;" class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                <a style="margin-left: 10px" href="" class="active" ui-toggle-class=""><i style="color: red;" class="fa fa-trash-o" aria-hidden="true"></i></a>
-                
+                <a href="{{URL::to('/edit-category-product')}}" class="active" ui-toggle-class=""><i style="color: #12b886;" class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                <a style="margin-left: 10px" href="" class="active" ui-toggle-class=""><i style="color: #f03e3e;" class="fa fa-trash-o" aria-hidden="true"></i></a>
               </td>
             </tr>
-            
+            @endforeach
           </tbody>
         </table>
       </div>
       <footer class="panel-footer">
-        <div class="row">
+        {{-- <div class="row"> --}}
           
-          <div class="col-sm-5 text-center">
+          {{-- <div class="col-sm-5 text-center">
             <small class="text-muted inline m-t-sm m-b-sm">showing 20-30 of 50 items</small>
-          </div>
-          <div class="col-sm-7 text-right text-center-xs">                
+          </div> --}}
+          {{-- <div class="col-sm-7 text-right text-center-xs">                
             <ul class="pagination pagination-sm m-t-none m-b-none">
               <li><a href=""><i class="fa fa-chevron-left"></i></a></li>
               <li><a href="">1</a></li>
@@ -73,7 +75,7 @@
               <li><a href=""><i class="fa fa-chevron-right"></i></a></li>
             </ul>
           </div>
-        </div>
+        </div> --}}
       </footer>
     </div>
 </div>
