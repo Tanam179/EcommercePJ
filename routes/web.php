@@ -29,3 +29,4 @@ Route::post('/admin-dashboard', [AdminController::class, 'dashboard']);
 Route::get('/add-category', [CategoryController::class, 'add_category']);
 Route::get('/all-category', [CategoryController::class, 'all_category']);
 Route::post('/save-category-product', [CategoryController::class, 'save_category_product']);
+Route::get('/edit-category-product', [CategoryController::class, 'edit_category_product']);
