@@ -45,7 +45,7 @@ class CategoryController extends Controller
             "category_product_desc.required" => "(* Vui lòng nhập mô tả danh mục)",
         ]);
         if ($validator->fails()) {
-            return back()->withErrors($validator->getMessageBag())/*->status(400)*/;
+            return back()->withErrors($validator->getMessageBag())->withInput();/*->status(400)*/;
         }
         CategoryModel::create([
             'category_name' => $request->category_product_name,
