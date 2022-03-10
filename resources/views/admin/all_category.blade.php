@@ -36,7 +36,6 @@
                                 </label>
                             </th>
                             <th>Tên danh mục</th>
-                            {{-- <th>Hiển thị</th> --}}
                             <th>Mô tả</th>
                             <th>Ngày thêm</th>
                             <th>Ngày cập nhật gần đây</th>
@@ -45,29 +44,35 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @if (session('message'))
+                            <span style="color: #12b886; font-size: 15px; display: inline-block; margin-left: 18px;">
+                                {{ session()->get('message') }}
+                            </span>
+                        @endif
                         @foreach ($all_category_product as $cate_pro)
                             <tr>
                                 <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label>
                                 </td>
                                 <td>{{ $cate_pro->category_name }}</td>
-                                <td><span class="text-ellipsis">{{ $cate_pro->category_status }}</span></td>
                                 <td><span class="text-ellipsis">{{ $cate_pro->category_desc }}</span></td>
-                                <td><span class="text-ellipsis">{{ $cate_pro->created_at }}</span></td>
-                                <td><span class="text-ellipsis">{{ $cate_pro->update_at }}</span></td>
+                                <td><span class="text-ellipsis">{{ $cate_pro->created_at->format('d/m/Y') }}</span></td>
+                                <td><span class="text-ellipsis">{{ $cate_pro->updated_at->format('d/m/Y') }}</span></td>
                                 <td><span class="text-ellipsis">
                                         <?php
-                                        if ($cate_pro->category_status == false) {
-                                        }
-                                        ?>
+                if($cate_pro->category_status == false){
+                  ?>
+                                        <a href="{{ URL::to('/active-category/' . $cate_pro->category_id) }}"><span
+                                                style="color: #999">Ẩn</span></a>
+                                        <?php
+                }
+                else {
+                  ?>
+                                        <a href="{{ URL::to('/unactive-category/' . $cate_pro->category_id) }}"><span
+                                                style="color: #999">Hiển thị</span></a>
+                                        <?php
+                }
+                ?>
                                     </span></td>
-                                {{-- <td style="display: flex; font-size: 20px">
-                                    <a href="{{ URL::to('/edit-category-product') }}" class="active"
-                                        ui-toggle-class=""><i style="color: #12b886;"
-                                            class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-
-                                    <a style="margin-left: 10px" href="" class="active"
-                                        ui-toggle-class=""><i style="color: #f03e3e;" class="fa fa-trash-o"
-                                            aria-hidden="true"></i></a> --}}
                                 <td style="display: flex; align-items: center ; font-size: 20px">
                                     <a href="{{ URL::to('/edit-category-product/' . $cate_pro->category_id) }}"
                                         class="active" ui-toggle-class=""><i style="color: #12b886;"
