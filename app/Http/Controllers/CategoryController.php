@@ -40,6 +40,9 @@ class CategoryController extends Controller
         $validator = Validator::make($request->all(), [
             "category_product_name" => "required",
             "category_product_desc" => "required",
+        ],[
+            "category_product_name.required" => "(* Vui lòng nhập tên danh mục)",
+            "category_product_desc.required" => "(* Vui lòng nhập mô tả danh mục)",
         ]);
         if ($validator->fails()) {
             return back()->withErrors($validator->getMessageBag())/*->status(400)*/;

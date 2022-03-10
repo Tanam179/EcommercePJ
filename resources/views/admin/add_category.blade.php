@@ -21,14 +21,14 @@
                 <div class="form-group">
                     <label for="exampleInputEmail1">Tên danh mục</label>
                     @error('category_product_name')
-                    <span style="color: red; font-size: 15px; margin-right: 10px;">(* Vui lòng nhập tên danh mục)</span>
+                    <span style="color: red; font-size: 15px; margin-right: 10px;">{{$message}}</span>
                     @enderror
                     <input type="text" name="category_product_name" class="form-control" id="exampleInputEmail1" placeholder="Tên danh mục">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Mô tả danh mục</label>
                     @error('category_product_desc')
-                    <span style="color: red; font-size: 15px; margin-right: 10px;">(* Vui lòng nhập mô tả danh mục)</span>
+                    <span style="color: red; font-size: 15px; margin-right: 10px;">{{$message}}</span>
                     @enderror
                     <textarea style="resize: none" rows="10" class="form-control" name="category_product_desc" id="exampleInputPassword1" placeholder="Mô tả danh mục"></textarea>
                 </div>
