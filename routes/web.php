@@ -31,4 +31,5 @@ Route::get('/all-category', [CategoryController::class, 'all_category']);
 Route::get('/active-category/{category_id}', [CategoryController::class, 'active_category']);
 Route::get('/unactive-category/{category_id}', [CategoryController::class, 'unactive_category']);
 Route::post('/save-category-product', [CategoryController::class, 'save_category_product']);
-Route::get('/edit-category-product', [CategoryController::class, 'edit_category_product']);
+Route::get('/edit-category-product/{category_id}', [CategoryController::class, 'edit_category_product']);
+Route::post('/update-category-product/{category_id}', [CategoryController::class, 'update_category_product']);

@@ -38,6 +38,7 @@
               <th>Tên danh mục</th>
               <th>Mô tả</th>
               <th>Ngày thêm</th>
+              <th>Ngày cập nhật gần đây</th>
               <th>Trạng thái</th>
               <th>Tùy chọn</th>
             </tr>
@@ -54,6 +55,7 @@
               <td>{{$cate_pro->category_name}}</td>
               <td><span class="text-ellipsis">{{$cate_pro->category_desc}}</span></td>
               <td><span class="text-ellipsis">{{$cate_pro->created_at->format('d/m/Y')}}</span></td>
+              <td><span class="text-ellipsis">{{$cate_pro->updated_at->format('d/m/Y')}}</span></td>
               <td><span class="text-ellipsis">
                 <?php
                 if($cate_pro->category_status == false){
@@ -68,9 +70,9 @@
                 }
                 ?>
               </span></td>
-              <td style="display: flex; font-size: 20px">
-                <a href="{{URL::to('/edit-category-product')}}" class="active" ui-toggle-class=""><i style="color: #12b886;" class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                <a style="margin-left: 10px" href="" class="active" ui-toggle-class=""><i style="color: #f03e3e;" class="fa fa-trash-o" aria-hidden="true"></i></a>
+              <td style="display: flex; align-items: center ; font-size: 20px">
+                <a href="{{URL::to('/edit-category-product/'.$cate_pro->category_id)}}" class="active" ui-toggle-class=""><i style="color: #12b886;" class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                <a style="margin-left: 10px" href="{{URL::to('/delete-category-product/'.$cate_pro->category_id)}}" class="active" ui-toggle-class=""><i style="color: #f03e3e;" class="fa fa-trash-o" aria-hidden="true"></i></a>
               </td>
             </tr>
             @endforeach
