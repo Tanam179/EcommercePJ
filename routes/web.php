@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController; 
-use App\Http\Controllers\AdminController; 
-use App\Http\Controllers\CategoryController; 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,8 +20,8 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/trang-chu', [HomeController::class, 'index']);
 
 //ADMIN
-Route::get('/admin',[AdminController::class, 'index']);
-Route::get('/dashboard',[AdminController::class, 'showDashboard']);
+Route::get('/admin', [AdminController::class, 'index']);
+Route::get('/dashboard', [AdminController::class, 'showDashboard']);
 Route::post('/admin-dashboard', [AdminController::class, 'dashboard']);
 
 
@@ -29,4 +29,5 @@ Route::post('/admin-dashboard', [AdminController::class, 'dashboard']);
 Route::get('/add-category', [CategoryController::class, 'add_category']);
 Route::get('/all-category', [CategoryController::class, 'all_category']);
 Route::post('/save-category-product', [CategoryController::class, 'save_category_product']);
-Route::get('/edit-category-product', [CategoryController::class, 'edit_category_product']);
+Route::get('/edit-category-product/{category_id}', [CategoryController::class, 'edit_category_product']);
+Route::get('/update-category-product/{category_id}', [CategoryController::class, 'update_category_product']);
