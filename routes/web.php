@@ -33,3 +33,4 @@ Route::get('/unactive-category/{category_id}', [CategoryController::class, 'unac
 Route::post('/save-category-product', [CategoryController::class, 'save_category_product']);
 Route::get('/edit-category-product/{category_id}', [CategoryController::class, 'edit_category_product']);
 Route::post('/update-category-product/{category_id}', [CategoryController::class, 'update_category_product']);
+Route::get('/delete-category-product/{category_id}', [CategoryController::class, 'delete_category_product']);

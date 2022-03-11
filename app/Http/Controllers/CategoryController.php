@@ -23,13 +23,14 @@ class CategoryController extends Controller
         return view('admin_layout')->with('admin.all_category', $manager_category_product);
     }
 
-    public function active_category($category_id) {
+    public function active_category($category_id)
+    {
         CategoryModel::where('category_id', $category_id)->update(['category_status' => 1]);
         return redirect()->back()->with('message', 'Cập nhật hiển thị danh mục sản phẩm thành công');
-
     }
 
-    public function unactive_category($category_id) {
+    public function unactive_category($category_id)
+    {
         CategoryModel::where('category_id', $category_id)->update(['category_status' => 0]);
         return redirect()->back()->with('message', 'Cập nhật ẩn danh mục sản phẩm thành công');
     }
@@ -40,7 +41,7 @@ class CategoryController extends Controller
         $validator = Validator::make($request->all(), [
             "category_product_name" => "required",
             "category_product_desc" => "required",
-        ],[
+        ], [
             "category_product_name.required" => "(* Vui lòng nhập tên danh mục)",
             "category_product_desc.required" => "(* Vui lòng nhập mô tả danh mục)",
         ]);
@@ -71,6 +72,11 @@ class CategoryController extends Controller
             'category_status' => $request->category_product_status,
         ]);
         return redirect()->back()->with('message', 'Cập nhật danh mục sản phẩm thành công');
+    }
 
+    public function delete_category_product($category_id)
+    {
+        CategoryModel::where('category_id', $category_id)->delete();
+        return redirect()->back()->with('message', 'Xóa danh mục sản phẩm thành công');
     }
 }
