@@ -7,13 +7,9 @@
             </div>
             <div class="row w3-res-tb">
                 <div class="col-sm-5 m-b-xs">
-                    <select class="input-sm form-control w-sm inline v-middle">
-                        <option value="0">Bulk action</option>
-                        <option value="1">Delete selected</option>
-                        <option value="2">Bulk edit</option>
-                        <option value="3">Export</option>
-                    </select>
-                    <button class="btn btn-sm btn-default">Apply</button>
+
+                    <a style="font-size: 14px" href="{{ URL::to('/add-category') }}" class="btn btn-sm btn-primary">Thêm danh
+                        mục sản phẩm</a>
                 </div>
                 <div class="col-sm-4">
                 </div>
@@ -53,33 +49,33 @@
                             <tr>
                                 <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label>
                                 </td>
-                                <td>{{ $cate_pro->category_name }}</td>
-                                <td><span class="text-ellipsis">{{ $cate_pro->category_desc }}</span></td>
+                                <td>{{ $cate_pro->name }}</td>
+                                <td><span class="text-ellipsis">{{ $cate_pro->desc }}</span></td>
                                 <td><span class="text-ellipsis">{{ $cate_pro->created_at->format('d/m/Y') }}</span></td>
                                 <td><span class="text-ellipsis">{{ $cate_pro->updated_at->format('d/m/Y') }}</span></td>
                                 <td><span class="text-ellipsis">
                                         <?php
-                if($cate_pro->category_status == false){
-                  ?>
-                                        <a href="{{ URL::to('/active-category/' . $cate_pro->category_id) }}"><span
+                                      if($cate_pro->status == false){
+                                        ?>
+                                        <a href="{{ URL::to('/active-category/' . $cate_pro->id) }}"><span
                                                 style="color: #999">Ẩn</span></a>
                                         <?php
-                }
-                else {
-                  ?>
-                                        <a href="{{ URL::to('/unactive-category/' . $cate_pro->category_id) }}"><span
+                                      }
+                                      else {
+                                        ?>
+                                        <a href="{{ URL::to('/unactive-category/' . $cate_pro->id) }}"><span
                                                 style="color: #999">Hiển thị</span></a>
                                         <?php
-                }
-                ?>
+                                      }
+                                      ?>
                                     </span></td>
                                 <td style="display: flex; align-items: center ; font-size: 20px">
-                                    <a href="{{ URL::to('/edit-category-product/' . $cate_pro->category_id) }}"
-                                        class="active" ui-toggle-class=""><i style="color: #12b886;"
+                                    <a href="{{ URL::to('/edit-category-product/' . $cate_pro->id) }}" class="active"
+                                        ui-toggle-class=""><i style="color: #12b886;"
                                             class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                     <a onclick="return confirm('Bạn có chắc là muốn xóa danh mục này không?')"
                                         style="margin-left: 10px"
-                                        href="{{ URL::to('/delete-category-product/' . $cate_pro->category_id) }}"
+                                        href="{{ URL::to('/delete-category-product/' . $cate_pro->id) }}"
                                         class="active" ui-toggle-class=""><i style="color: #f03e3e;"
                                             class="fa fa-trash-o" aria-hidden="true"></i></a>
                                 </td>

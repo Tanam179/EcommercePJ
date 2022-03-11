@@ -15,23 +15,22 @@
                         </span>
                     @endif
                     @foreach ($edit_category as $edit_cate)
-                        <form role="form" action="{{ URL::to('/update-category-product/' . $edit_cate->category_id) }}"
-                            method="POST">
+                        <form role="form" action="{{ URL::to('/update-category-product/' . $edit_cate->id) }}" method="POST">
                             @csrf
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Tên danh mục</label>
-                                <input type="text" value="{{ $edit_cate->category_name }}" name="category_product_name"
+                                <input type="text" value="{{ $edit_cate->name }}" name="category_product_name"
                                     class="form-control" id="exampleInputEmail1" placeholder="Tên danh mục">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Mô tả danh mục</label>
                                 <textarea style="resize: none" rows="10" class="form-control" name="category_product_desc"
-                                    id="exampleInputPassword1">{{ $edit_cate->category_desc }}</textarea>
+                                    id="exampleInputPassword1">{{ $edit_cate->desc }}</textarea>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Trạng thái danh mục</label>
                                 <select name="category_product_status" class="form-control input-sm m-bot15"
-                                    value="{{ $edit_cate->category_status }}">
+                                    value="{{ $edit_cate->status }}">
                                     <option value="0">Ẩn</option>
                                     <option value="1">Hiển thị</option>
                                 </select>
