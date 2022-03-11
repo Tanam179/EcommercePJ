@@ -11,8 +11,8 @@ class CategoryModel extends Model
     use HasFactory;
 
 
-    protected $table = "category_product";
+    protected $table = "categories_product";
     protected $fillable = [
-        'category_name', 'category_desc', 'category_status'
+        'name', 'desc', 'status'
     ];
 }
