@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController; 
-use App\Http\Controllers\AdminController; 
-use App\Http\Controllers\CategoryController; 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,8 +20,8 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/trang-chu', [HomeController::class, 'index']);
 
 //ADMIN
-Route::get('/admin',[AdminController::class, 'index']);
-Route::get('/dashboard',[AdminController::class, 'showDashboard']);
+Route::get('/admin', [AdminController::class, 'index']);
+Route::get('/dashboard', [AdminController::class, 'showDashboard']);
 Route::post('/admin-dashboard', [AdminController::class, 'dashboard']);
 
 
