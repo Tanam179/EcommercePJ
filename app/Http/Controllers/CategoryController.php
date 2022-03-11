@@ -71,6 +71,5 @@ class CategoryController extends Controller
             'category_status' => $request->category_product_status,
         ]);
         return redirect()->back()->with('message', 'Cập nhật danh mục sản phẩm thành công');
-
     }
 }

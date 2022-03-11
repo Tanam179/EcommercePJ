@@ -72,7 +72,7 @@
               </span></td>
               <td style="display: flex; align-items: center ; font-size: 20px">
                 <a href="{{URL::to('/edit-category-product/'.$cate_pro->category_id)}}" class="active" ui-toggle-class=""><i style="color: #12b886;" class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                <a style="margin-left: 10px" href="{{URL::to('/delete-category-product/'.$cate_pro->category_id)}}" class="active" ui-toggle-class=""><i style="color: #f03e3e;" class="fa fa-trash-o" aria-hidden="true"></i></a>
+                <a onclick="return confirm('Bạn có chắc là muốn xóa danh mục này không?')" style="margin-left: 10px" href="{{URL::to('/delete-category-product/'.$cate_pro->category_id)}}" class="active" ui-toggle-class=""><i style="color: #f03e3e;" class="fa fa-trash-o" aria-hidden="true"></i></a>
               </td>
             </tr>
             @endforeach

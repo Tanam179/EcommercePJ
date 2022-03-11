@@ -27,7 +27,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Trạng thái danh mục</label>
-                    <select name="category_product_status" class="form-control input-sm m-bot15" value="{{$edit_cate->category_status}}>
+                    <select name="category_product_status" class="form-control input-sm m-bot15" value="{{$edit_cate->category_status}}">
                         <option value="0">Ẩn</option>
                         <option value="1">Hiển thị</option>
                     </select>
