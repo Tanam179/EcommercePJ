@@ -2,8 +2,8 @@
 @section('admin_content')
     <div class="table-agile-info">
         <div class="panel panel-default">
-            <div class="panel-heading">
-                Liệt kê danh mục sản phẩm
+            <div class="ml-auto panel-heading">
+                Danh mục sản phẩm
             </div>
             <div class="row w3-res-tb">
                 <div class="col-sm-5 m-b-xs">
@@ -61,31 +61,37 @@
                                         <?php
                 if($cate_pro->category_status == false){
                   ?>
-                                        <a href="{{ URL::to('/active-category/'.$cate_pro->category_id) }}"><span
+                                        <a href="{{ URL::to('/active-category/' . $cate_pro->category_id) }}"><span
                                                 style="color: #999">Ẩn</span></a>
                                         <?php
                 }
                 else {
                   ?>
-                                        <a href="{{ URL::to('/unactive-category/'.$cate_pro->category_id) }}"><span
+                                        <a href="{{ URL::to('/unactive-category/' . $cate_pro->category_id) }}"><span
                                                 style="color: #999">Hiển thị</span></a>
                                         <?php
                 }
                 ?>
-              </span></td>
-              <td style="display: flex; align-items: center ; font-size: 20px">
-                <a href="{{URL::to('/edit-category-product/'.$cate_pro->category_id)}}" class="active" ui-toggle-class=""><i style="color: #12b886;" class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                <a onclick="return confirm('Bạn có chắc là muốn xóa danh mục này không?')" style="margin-left: 10px" href="{{URL::to('/delete-category-product/'.$cate_pro->category_id)}}" class="active" ui-toggle-class=""><i style="color: #f03e3e;" class="fa fa-trash-o" aria-hidden="true"></i></a>
-              </td>
-            </tr>
-            @endforeach
-          </tbody>
-        </table>
-      </div>
-      <footer class="panel-footer">
-        {{-- <div class="row"> --}}
-          
-          {{-- <div class="col-sm-5 text-center">
+                                    </span></td>
+                                <td style="display: flex; align-items: center ; font-size: 20px">
+                                    <a href="{{ URL::to('/edit-category-product/' . $cate_pro->category_id) }}"
+                                        class="active" ui-toggle-class=""><i style="color: #12b886;"
+                                            class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                    <a onclick="return confirm('Bạn có chắc là muốn xóa danh mục này không?')"
+                                        style="margin-left: 10px"
+                                        href="{{ URL::to('/delete-category-product/' . $cate_pro->category_id) }}"
+                                        class="active" ui-toggle-class=""><i style="color: #f03e3e;"
+                                            class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+            <footer class="panel-footer">
+                {{-- <div class="row"> --}}
+
+                {{-- <div class="col-sm-5 text-center">
             <small class="text-muted inline m-t-sm m-b-sm">showing 20-30 of 50 items</small>
           </div> --}}
                 {{-- <div class="col-sm-7 text-right text-center-xs">                

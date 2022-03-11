@@ -72,14 +72,11 @@ class CategoryController extends Controller
             'category_status' => $request->category_product_status,
         ]);
         return redirect()->back()->with('message', 'Cập nhật danh mục sản phẩm thành công');
-<<<<<<< HEAD
     }
 
     public function delete_category_product($category_id)
     {
         CategoryModel::where('category_id', $category_id)->delete();
         return redirect()->back()->with('message', 'Xóa danh mục sản phẩm thành công');
-=======
->>>>>>> 7581c356b0b5b39d688f7d0cff884d1b3be09bd7
     }
 }
