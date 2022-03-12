@@ -5,13 +5,13 @@
             {{-- @error('category_product_name') {{$mesage}}@enderror --}}
 
             <header class="panel-heading text-center">
-                Thêm Sản Phẩm
+                Cập nhật sản phẩm
             </header>
 
             <div class="panel-body">
                 <div class="position-center">
 
-                    <form role="form" action="{{ URL::to('/save-product') }}" method="POST" enctype="multipart/form-data">
+                    <form role="form" action="{{ URL::to('/update-product') }}" method="POST" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group">
@@ -84,7 +84,7 @@
                                 @endforeach
                             </select>
                         </div>
-                        <button style="width: 300px" type="submit" name="add_product" class="btn btn-info">Thêm
+                        <button style="width: 300px" type="submit" name="add_product" class="btn btn-info">Cập nhật
                             danh mục</button>
                     </form>
                 </div>
