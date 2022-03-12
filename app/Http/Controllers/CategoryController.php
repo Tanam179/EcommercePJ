@@ -68,7 +68,7 @@ class CategoryController extends Controller
     {
         CategoryModel::where('id', $category_id)->update([
             'name' => $request->category_product_name,
-            'desc' => $request->category_product_desc,
+            'desc' => $request->category_pro
             // 'status' => $request->category_product_status,
         ]);
         return redirect('/all-category')->with('message', 'Cập nhật danh mục sản phẩm thành công');

@@ -20,7 +20,9 @@ return new class extends Migration
             $table->integer('price');
             $table->text('content');
             $table->string('img');
-            $table->string('color');
+            $table->boolean('sale');
+            $table->boolean('best_seller');
+            $table->boolean('status');
             $table->foreignId('cate_id');
             $table->foreign('cate_id')->references('id')->on('categories_product');
             $table->timestamps();
