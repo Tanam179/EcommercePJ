@@ -19,8 +19,8 @@ class CategoryController extends Controller
     public function all_category()
     {
         $all_category_product = CategoryModel::all();
-        $manager_category_product = view('admin.all_category')->with('all_category_product', $all_category_product);
-        return view('admin_layout')->with('admin.all_category', $manager_category_product);
+        // $manager_category_product = view('admin.all_category')->with('all_category_product', $all_category_product);
+        return view('admin.all_category')/*->with('admin.all_category', $manager_category_product)*/    ->with('all_category_product', $all_category_product);
     }
 
     public function active_category($category_id)
@@ -60,8 +60,8 @@ class CategoryController extends Controller
     public function edit_category_product($category_id)
     {
         $edit_category = CategoryModel::where('id', $category_id)->get();
-        $manager_category_product = view('admin.edit_category')->with('edit_category', $edit_category);
-        return view('admin_layout')->with('admin.edit_category', $manager_category_product);
+        // $manager_category_product = view('admin.edit_category');
+        return view('admin.edit_category')/*->with('admin.edit_category', $manager_category_product)*/->with('edit_category', $edit_category);
     }
 
     public function update_category_product(Request $request, $category_id)
