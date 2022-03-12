@@ -6,20 +6,22 @@
                 Danh mục sản phẩm
             </div>
             <div class="row w3-res-tb">
-                <div class="col-sm-5 m-b-xs">
-
-                    <a style="font-size: 14px" href="{{ URL::to('/add-category') }}" class="btn btn-sm btn-primary">Thêm danh
-                        mục sản phẩm</a>
-                </div>
-                <div class="col-sm-4">
-                </div>
-                <div class="col-sm-3">
+                <div class="col-sm-4 m-b-xs">
                     <div class="input-group">
                         <input type="text" class="input-sm form-control" placeholder="Search">
                         <span class="input-group-btn">
                             <button class="btn btn-sm btn-default" type="button">Go!</button>
                         </span>
                     </div>
+
+                </div>
+                <div class="col-sm-6">
+                </div>
+                <div class="col-sm-2">
+                    <a style="font-size: 14px; display: block" href="{{ URL::to('/add-category') }}"
+                        class="btn btn-sm btn-primary"><i class="fa fa-plus" style="margin-right: 10px"
+                            aria-hidden="true"></i>Thêm
+                        danh mục</a>
                 </div>
             </div>
             <div class="table-responsive">
@@ -55,23 +57,23 @@
                                 <td><span class="text-ellipsis">{{ $cate_pro->updated_at->format('d/m/Y') }}</span></td>
                                 <td><span class="text-ellipsis">
                                         <?php
-                                      if($cate_pro->status == false){
+                                            if($cate_pro->status == false){
                                         ?>
                                         <a href="{{ URL::to('/active-category/' . $cate_pro->id) }}"><span
                                                 style="color: #999">Ẩn</span></a>
                                         <?php
-                                      }
-                                      else {
+                                            }
+                                        else {
                                         ?>
                                         <a href="{{ URL::to('/unactive-category/' . $cate_pro->id) }}"><span
                                                 style="color: #999">Hiển thị</span></a>
                                         <?php
-                                      }
-                                      ?>
+                                        }
+                                        ?>
                                     </span></td>
                                 <td style="display: flex; align-items: center ; font-size: 20px">
-                                    <a href="{{ URL::to('/edit-category-product/' . $cate_pro->id) }}" class="active"
-                                        ui-toggle-class=""><i style="color: #12b886;"
+                                    <a href="{{ URL::to('/edit-category-product/' . $cate_pro->id) }}"
+                                        class="active" ui-toggle-class=""><i style="color: #12b886;"
                                             class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                     <a onclick="return confirm('Bạn có chắc là muốn xóa danh mục này không?')"
                                         style="margin-left: 10px"
