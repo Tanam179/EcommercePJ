@@ -24,6 +24,7 @@
                         danh mục</a>
                 </div>
             </div>
+            @if($hasCategory)
             <div class="table-responsive">
                 <table class="table table-striped b-t b-light">
                     <thead>
@@ -86,6 +87,16 @@
                     </tbody>
                 </table>
             </div>
+            @else
+                <div class="box-empty" >
+                    <div class="iamge-error">
+                        <img src="/upload/error/boxes.png" style="display: block; margin: 50px auto" width="200px" alt="">
+                    </div>
+                    <h3 style="display: flex; justify-content: center; margin-bottom: 20px;">Oops! Danh mục sản phẩm trống</h3>
+                    <p style="display: flex; justify-content: center; margin-bottom: 100px; font-size: 20px">Hiện chưa có dữ liệu nào, hãy &quot;thêm mới&quot; một danh mục</p>
+                </div>
+            @endif
+            
             <footer class="panel-footer">
                 {{-- <div class="row"> --}}
 

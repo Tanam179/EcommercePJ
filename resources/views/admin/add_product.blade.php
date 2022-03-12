@@ -49,7 +49,7 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Hình ảnh sản phẩm</label>
-                            @error('product_content')
+                            @error('product_img')
                                 <span style="color: red; font-size: 15px; margin-right: 10px;">{{ $message }}</span>
                             @enderror
                             <input type="file" name="product_img" class="form-control" id="exampleInputEmail1"
@@ -78,6 +78,9 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Danh mục sản phẩm</label>
+                            @error('product_category_id')
+                                <span style="color: red; font-size: 15px; margin-right: 10px;">{{ $message }}</span>
+                            @enderror
                             <select name="product_category_id" class="form-control input-sm m-bot15">
                                 @foreach($all_product_cate as $all_pro_cate)
                                 <option value="{{$all_pro_cate->id}}">{{$all_pro_cate->name}}</option>

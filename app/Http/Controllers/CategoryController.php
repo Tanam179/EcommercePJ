@@ -19,8 +19,9 @@ class CategoryController extends Controller
     public function all_category()
     {
         $all_category_product = CategoryModel::all();
+        
         // $manager_category_product = view('admin.all_category')->with('all_category_product', $all_category_product);
-        return view('admin.all_category')/*->with('admin.all_category', $manager_category_product)*/->with('all_category_product', $all_category_product);
+        return view('admin.all_category', ['hasCategory' => CategoryModel::exists()])/*->with('admin.all_category', $manager_category_product)*/->with('all_category_product', $all_category_product);
     }
 
     public function active_category($category_id)
@@ -32,6 +33,7 @@ class CategoryController extends Controller
     public function unactive_category($category_id)
     {
         CategoryModel::where('id', $category_id)->update(['status' => 0]);
+        
         return redirect()->back()->with('message', 'Cập nhật ẩn danh mục sản phẩm thành công');
     }
 
