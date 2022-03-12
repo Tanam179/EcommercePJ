@@ -48,6 +48,7 @@
                                 {{ session()->get('message') }}
                             </span>
                         @endif
+                        
                         @foreach ($all_product as $all_pro)
                             <tr>
                                 <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label>

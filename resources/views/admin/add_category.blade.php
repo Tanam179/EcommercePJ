@@ -13,7 +13,14 @@
 
                     <form role="form" action="{{ URL::to('/save-category-product') }}" method="POST">
                         @csrf
-
+                        @if (session('error_message'))
+                            <div class="alert alert-danger mb-20">
+                                <span style="font-size: 15px;">
+                                    {{ session()->get('error_message') }}
+                                </span>
+                            </div>
+                            
+                        @endif
                         <div class="form-group">
                             <label for="exampleInputEmail1">Tên danh mục</label>
                             @error('category_product_name')
@@ -34,8 +41,8 @@
                         <div class="form-group">
                             <label for="exampleInputPassword1">Trạng thái danh mục</label>
                             <select name="category_product_status" class="form-control input-sm m-bot15">
-                                <option value="0">Ẩn</option>
                                 <option value="1">Hiển thị</option>
+                                <option value="0">Ẩn</option>
                             </select>
                         </div>
                         <button style="width: 300px" type="submit" name="add_category_product" class="btn btn-info">Thêm

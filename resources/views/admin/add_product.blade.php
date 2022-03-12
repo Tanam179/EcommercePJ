@@ -12,6 +12,14 @@
                 <div class="position-center">
 
                     <form role="form" action="{{ URL::to('/save-product') }}" method="POST" enctype="multipart/form-data">
+                        @if (session('error_message'))
+                            <div class="alert alert-danger mb-20">
+                                <span style="font-size: 15px;">
+                                    {{ session()->get('error_message') }}
+                                </span>
+                            </div>
+                            
+                        @endif
                         @csrf
 
                         <div class="form-group">
@@ -54,6 +62,9 @@
                             @enderror
                             <input type="file" name="product_img" class="form-control" id="exampleInputEmail1"
                                 placeholder="Hình ảnh sản phẩm" value="{{ old('product_img') }}">
+                            <div class="img-holder">
+
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Là sản phẩm đang giảm giá??</label>
@@ -95,4 +106,30 @@
             </div>
         </section>
     </div>
+
+    <script>
+        //Reset input file
+        $('input[type="file"][name="product_img"]').val('');
+
+        $('input[type="file"][name="product_img"]').on('change', function() {
+            const img_path = $(this)[0].value;
+            const img_holder = $('.img-holder');
+            const extension =  img_path.substring(img_path.lastIndexOf('.')+ 1).toLowerCase();
+            if(extension == 'jpeg' || extension == 'jpg' || extension == 'png'){
+                if(typeof(FileReader) != 'undefined'){
+                    img_holder.empty();
+                    const reader = new FileReader();
+                    reader.onload = function(e){
+                        $('<img/>', {'src':e.target.result, 'class':'img-fluid','style': 'width: 150px; margin-bottom: 10px; margin-top: 10px'}).appendTo(img_holder);
+                    }
+                    img_holder.show();
+                    reader.readAsDataURL($(this)[0].files[0]);
+                }else{
+                    $(img_holder).html('Định dạng này không được hỗ trợ');
+                }
+            }else{
+                $(img_holder).empty();
+            }
+        })
+    </script>
 @endsection

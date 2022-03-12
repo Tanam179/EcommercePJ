@@ -48,7 +48,7 @@ class CategoryController extends Controller
             "category_product_desc.required" => "(* Vui lòng nhập mô tả danh mục)",
         ]);
         if ($validator->fails()) {
-            return back()->withErrors($validator->getMessageBag())->withInput();/*->status(400)*/;
+            return back()->withErrors($validator->getMessageBag())->withInput()->with('error_message', 'Có lỗi khi thêm danh mục sản phẩm, vui lòng thêm lại');/*->status(400)*/;
         }
         CategoryModel::create([
             'name' => $request->category_product_name,
