@@ -17,20 +17,20 @@ class ProductController extends Controller
 
     public function all_product()
     {
-        $all_category_product = ProductModel::all();
+        $all_product = ProductModel::all();
         // $manager_category_product = view('admin.all_category')->with('all_category_product', $all_category_product);
-        return view('admin.all_product')/*->with('admin.all_category', $manager_category_product)*/->with('all_category_product', $all_category_product);
+        return view('admin.all_product')/*->with('admin.all_category', $manager_category_product)*/->with('all_product', $all_product);
     }
 
-    public function active_category($category_id)
+    public function active_product($product_id)
     {
-        ProductModel::where('id', $category_id)->update(['status' => 1]);
+        ProductModel::where('id', $product_id)->update(['status' => 1]);
         return redirect()->back()->with('message', 'Cập nhật hiển thị sản phẩm thành công');
     }
 
-    public function unactive_category($category_id)
+    public function unactive_product($product_id)
     {
-        ProductModel::where('id', $category_id)->update(['status' => 0]);
+        ProductModel::where('id', $product_id)->update(['status' => 0]);
         return redirect()->back()->with('message', 'Cập nhật ẩn sản phẩm thành công');
     }
 
@@ -56,7 +56,9 @@ class ProductController extends Controller
 
         $get_img = $request->product_img;
         if ($get_img) {
-            $new_img = rand(0, 99) . '.' . $get_img->getClientOriginalExtension();
+            $get_name_img = $get_img->getClientOriginalName();
+            $name_img = current(explode('.', $get_name_img));
+            $new_img = $name_img . '.' . $get_img->getClientOriginalExtension();
             $get_img->move('public.upload.products', $new_img);
 
             ProductModel::create([
@@ -76,11 +78,12 @@ class ProductController extends Controller
         return redirect('/all-category')->with('message', 'Thêm sản phẩm thành công');
     }
 
-    public function edit_category_product($category_id)
+    public function edit_product($product_id)
     {
-        $edit_category = ProductModel::where('id', $category_id)->get();
+        $edit_product = ProductModel::where('id', $product_id)->get();
+        $all_product_cate = CategoryModel::all();
         // $manager_category_product = view('admin.edit_category');
-        return view('admin.edit_category')/*->with('admin.edit_category', $manager_category_product)*/->with('edit_category', $edit_category);
+        return view('admin.edit_product')/*->with('admin.edit_category', $manager_category_product)*/->with('edit_product', $edit_product)->with('all_product_cate', $all_product_cate);
     }
 
     public function update_category_product(Request $request, $category_id)
