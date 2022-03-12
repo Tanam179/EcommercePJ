@@ -55,7 +55,7 @@
                                 <td>{{ $all_pro->name }}</td>
                                 <td><span class="text-ellipsis">{{ $all_pro->price }}</span></td>
                                 <td><span class="text-ellipsis"><img src="/upload/products/{{$all_pro->img }}" width="150px" height="100px"></span></td>
-                                <td><span class="text-ellipsis">{{ $all_pro->getCategoryRelationShip->name }}</span></td>
+                                <td><span class="text-ellipsis">{{ $all_pro->cate->name }}</span></td>
                                 {{-- <td><span class="text-ellipsis">{{ $all_pro->created_at->format('d/m/Y') }}</span></td>
                                 <td><span class="text-ellipsis">{{ $all_pro->updated_at->format('d/m/Y') }}</span></td> --}}
                                 <td><span class="text-ellipsis">
@@ -78,9 +78,9 @@
                                     <a href="{{ URL::to('/edit-product/' . $all_pro->id) }}"
                                         class="active" ui-toggle-class=""><i style="color: #12b886;"
                                             class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                                    <a onclick="return confirm('Bạn có chắc là muốn xóa danh mục này không?')"
+                                    <a onclick="return confirm('Bạn có chắc là muốn xóa sản phẩm này không?')"
                                         style="margin-left: 10px"
-                                        href="{{ URL::to('/delete-product/' . $all_pro->id) }}"
+                                        href="{{ URL::to('/delete-product/'. $all_pro->id) }}"
                                         class="active" ui-toggle-class=""><i style="color: #f03e3e;"
                                             class="fa fa-trash-o" aria-hidden="true"></i></a>
                                 </td>
