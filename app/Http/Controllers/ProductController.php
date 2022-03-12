@@ -15,11 +15,11 @@ class ProductController extends Controller
         return view('admin.add_product')->with('all_product_cate', $all_product_cate);
     }
 
-    public function all_category()
+    public function all_product()
     {
         $all_category_product = ProductModel::all();
         // $manager_category_product = view('admin.all_category')->with('all_category_product', $all_category_product);
-        return view('admin.all_category')/*->with('admin.all_category', $manager_category_product)*/->with('all_category_product', $all_category_product);
+        return view('admin.all_product')/*->with('admin.all_category', $manager_category_product)*/->with('all_category_product', $all_category_product);
     }
 
     public function active_category($category_id)
