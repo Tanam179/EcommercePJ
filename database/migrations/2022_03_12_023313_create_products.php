@@ -20,11 +20,11 @@ return new class extends Migration
             $table->integer('price');
             $table->text('content');
             $table->string('img');
-            $table->boolean('sale');
-            $table->boolean('best_seller');
+            $table->boolean('sale')->default(false);
+            $table->boolean('best_seller')->default(false);
             $table->boolean('status');
             $table->foreignId('cate_id');
-            $table->foreign('cate_id')->references('id')->on('categories_product');
+            $table->foreign('cate_id')->references('id')->on('categories_product')->onDelete('cascade');
             $table->timestamps();
         });
     }

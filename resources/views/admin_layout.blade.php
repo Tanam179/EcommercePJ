@@ -133,7 +133,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <!-- footer -->
             <div class="footer">
                 <div class="wthree-copyright">
-                    <p>© 2017 Visitors. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+                    <p>© 2022 Visitors. All rights reserved | Designed by <a href="http://w3layouts.com">TasNam</a></p>
                 </div>
             </div>
             <!-- / footer -->
@@ -149,6 +149,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <script src="{{ asset('../assets/js/jquery.scrollTo.js') }}"></script>
     <!-- morris JavaScript -->
     <script>
+        
         $(document).ready(function() {
             //BOX BUTTON SHOW AND CLOSE
             jQuery('.small-graph-box').hover(function() {

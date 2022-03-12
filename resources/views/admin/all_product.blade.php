@@ -24,6 +24,7 @@
                         sản phẩm</a>
                 </div>
             </div>
+            @if($hasProduct)
             <div class="table-responsive">
                 <table class="table table-striped b-t b-light">
                     <thead>
@@ -34,10 +35,10 @@
                                 </label>
                             </th>
                             <th>Tên sản phẩm</th>
-                            <th>Mô tả</th>
-                            <th>Ngày thêm</th>
-                            <th>Ngày cập nhật gần đây</th>
-                            <th>Trạng thái</th>
+                            <th>Giá</th>
+                            <th>Hình ảnh sản phẩm</th>
+                            <th>Danh mục sản phẩm</th>
+                            <th>Hiển thị</th>
                             <th>Tùy chọn</th>
                         </tr>
                     </thead>
@@ -47,14 +48,17 @@
                                 {{ session()->get('message') }}
                             </span>
                         @endif
+                        
                         @foreach ($all_product as $all_pro)
                             <tr>
                                 <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label>
                                 </td>
                                 <td>{{ $all_pro->name }}</td>
-                                <td><span class="text-ellipsis">{{ $all_pro->desc }}</span></td>
-                                <td><span class="text-ellipsis">{{ $all_pro->created_at->format('d/m/Y') }}</span></td>
-                                <td><span class="text-ellipsis">{{ $all_pro->updated_at->format('d/m/Y') }}</span></td>
+                                <td><span class="text-ellipsis">{{ $all_pro->price }}</span></td>
+                                <td><span class="text-ellipsis"><img src="/upload/products/{{$all_pro->img }}" width="150px" height="100px"></span></td>
+                                <td><span class="text-ellipsis">{{ $all_pro->cate->name }}</span></td>
+                                {{-- <td><span class="text-ellipsis">{{ $all_pro->created_at->format('d/m/Y') }}</span></td>
+                                <td><span class="text-ellipsis">{{ $all_pro->updated_at->format('d/m/Y') }}</span></td> --}}
                                 <td><span class="text-ellipsis">
                                         <?php
                                             if($all_pro->status == false){
@@ -75,9 +79,9 @@
                                     <a href="{{ URL::to('/edit-product/' . $all_pro->id) }}"
                                         class="active" ui-toggle-class=""><i style="color: #12b886;"
                                             class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                                    <a onclick="return confirm('Bạn có chắc là muốn xóa danh mục này không?')"
+                                    <a onclick="return confirm('Bạn có chắc là muốn xóa sản phẩm này không?')"
                                         style="margin-left: 10px"
-                                        href="{{ URL::to('/delete-product/' . $all_pro->id) }}"
+                                        href="{{ URL::to('/delete-product/'. $all_pro->id) }}"
                                         class="active" ui-toggle-class=""><i style="color: #f03e3e;"
                                             class="fa fa-trash-o" aria-hidden="true"></i></a>
                                 </td>
@@ -86,6 +90,15 @@
                     </tbody>
                 </table>
             </div>
+            @else
+                <div class="box-empty" >
+                    <div class="iamge-error">
+                        <img src="/upload/error/boxes.png" style="display: block; margin: 50px auto" width="200px" alt="">
+                    </div>
+                    <h3 style="display: flex; justify-content: center; margin-bottom: 20px;">Oops! Danh sách sản phẩm trống</h3>
+                    <p style="display: flex; justify-content: center; margin-bottom: 100px; font-size: 20px">Hiện chưa có dữ liệu nào, hãy &quot;thêm mới&quot; một sản phẩm</p>
+                </div>
+            @endif
             <footer class="panel-footer">
                 {{-- <div class="row"> --}}
 

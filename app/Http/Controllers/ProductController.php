@@ -17,9 +17,11 @@ class ProductController extends Controller
 
     public function all_product()
     {
+
+        // $all_product = ProductModel::all();
         $all_product = ProductModel::all();
         // $manager_category_product = view('admin.all_category')->with('all_category_product', $all_category_product);
-        return view('admin.all_product')/*->with('admin.all_category', $manager_category_product)*/->with('all_product', $all_product);
+        return view('admin.all_product', ['hasProduct' => ProductModel::exists()])/*->with('admin.all_category', $manager_category_product)*/->with('all_product', $all_product);
     }
 
     public function active_product($product_id)
@@ -42,14 +44,20 @@ class ProductController extends Controller
             "product_desc" => "required",
             "product_price" => "required",
             "product_content" => "required",
-            "product_img" => "required",
+            "product_img" => "required|mimes:jpg,png,jpeg,gif,svg",
+            "product_category_id" => "required",
 
         ], [
-            "category_product_name.required" => "(* Vui lòng nhập tên sản phẩm)",
-            "category_product_desc.required" => "(* Vui lòng nhập mô tả sản phẩm)",
+            "product_name.required" => "(* Vui lòng nhập tên sản phẩm)",
+            "product_desc.required" => "(* Vui lòng nhập mô tả sản phẩm)",
+            "product_price.required" => "(* Vui lòng nhập giá sản phẩm)",
+            "product_content.required" => "(* Vui lòng nhập nội dung sản phẩm)",
+            "product_img.required" => "(* Vui lòng thêm hình ảnh sản phẩm)",
+            "product_category_id.required" => "(* Vui lòng chọn loại sản phẩm)",
+            "product_img.mimes" => "(* Xin lỗi, định dạng này không được hỗ trợ)",
         ]);
         if ($validator->fails()) {
-            return back()->withErrors($validator->getMessageBag())->withInput();/*->status(400)*/;
+            return back()->withErrors($validator->getMessageBag())->withInput()->with('error_message', 'Có lỗi khi thêm sản phẩm, vui lòng thêm lại');/*->status(400)*/;
         }
 
 
@@ -59,7 +67,7 @@ class ProductController extends Controller
             $get_name_img = $get_img->getClientOriginalName();
             $name_img = current(explode('.', $get_name_img));
             $new_img = $name_img . '.' . $get_img->getClientOriginalExtension();
-            $get_img->move('public.upload.products', $new_img);
+            $get_img->move('upload/products', $new_img);
 
             ProductModel::create([
                 'name' => $request->product_name,
@@ -75,7 +83,7 @@ class ProductController extends Controller
         }
 
 
-        return redirect('/all-category')->with('message', 'Thêm sản phẩm thành công');
+        return redirect('/all-product')->with('message', 'Thêm sản phẩm thành công');
     }
 
     public function edit_product($product_id)
@@ -84,21 +92,5 @@ class ProductController extends Controller
         $all_product_cate = CategoryModel::all();
         // $manager_category_product = view('admin.edit_category');
         return view('admin.edit_product')/*->with('admin.edit_category', $manager_category_product)*/->with('edit_product', $edit_product)->with('all_product_cate', $all_product_cate);
-    }
-
-    public function update_category_product(Request $request, $category_id)
-    {
-        ProductModel::where('id', $category_id)->update([
-            'name' => $request->category_product_name,
-            'desc' => $request->category_pro
-            // 'status' => $request->category_product_status,
-        ]);
-        return redirect('/all-category')->with('message', 'Cập nhật danh mục sản phẩm thành công');
-    }
-
-    public function delete_category_product($category_id)
-    {
-        ProductModel::where('id', $category_id)->delete();
-        return redirect()->back()->with('message', 'Xóa danh mục sản phẩm thành công');
     }
 }
