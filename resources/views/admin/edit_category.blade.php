@@ -3,7 +3,7 @@
     <div class="col-lg-12">
         <section class="panel">
             {{-- @error('category_product_name') {{$mesage}}@enderror --}}
-            <header class="panel-heading">
+            <header class="panel-heading text-center">
                 Cập Nhật Danh Mục Sản Phẩm
             </header>
 
@@ -15,7 +15,8 @@
                         </span>
                     @endif
                     @foreach ($edit_category as $edit_cate)
-                        <form role="form" action="{{ URL::to('/update-category-product/'.$edit_cate->id) }}" method="POST">
+                        <form role="form" action="{{ URL::to('/update-category-product/' . $edit_cate->id) }}"
+                            method="POST">
                             @csrf
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Tên danh mục</label>

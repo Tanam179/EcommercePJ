@@ -786,16 +786,19 @@ ul.top-menu>li>a:hover,ul.top-menu>li>a:focus {
     height: 57px;
     line-height: 57px;
     letter-spacing: 0.2px;
-    color: #000;
+    color: #444;
     font-size: 18px;
     font-weight: 400;
     padding: 0 16px;
-    /* background:#ddede0; */
+    background:#ddede0;
     font-weight: 900;
    border-top-right-radius: 2px;
    border-top-left-radius: 2px; 
     text-transform: uppercase;
     /* text-align: center; */
+}
+.panel .panel-heading.text-center {
+    text-align: center;
 }
 .panel {
     border: none ! important;
