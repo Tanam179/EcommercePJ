@@ -54,7 +54,7 @@ class CategoryController extends Controller
             'status' => $request->category_product_status,
         ]);
 
-        return redirect()->back()->with('message', 'Thêm danh mục sản phẩm thành công');
+        return redirect('/all-category')->with('message', 'Thêm danh mục sản phẩm thành công');
     }
 
     public function edit_category_product($category_id)
@@ -69,9 +69,9 @@ class CategoryController extends Controller
         CategoryModel::where('id', $category_id)->update([
             'name' => $request->category_product_name,
             'desc' => $request->category_product_desc,
-            'status' => $request->category_product_status,
+            // 'status' => $request->category_product_status,
         ]);
-        return redirect()->back()->with('message', 'Cập nhật danh mục sản phẩm thành công');
+        return redirect('/all-category')->with('message', 'Cập nhật danh mục sản phẩm thành công');
     }
 
     public function delete_category_product($category_id)

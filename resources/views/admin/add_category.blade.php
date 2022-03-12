@@ -10,11 +10,7 @@
         
         <div class="panel-body">
             <div class="position-center">
-                @if (session('message'))
-                    <span  style="color: #12b886; font-size: 15px;">
-                        {{ session()->get('message') }}
-                    </span>
-                @endif
+                
                 <form  role="form" action="{{URL::to('/save-category-product')}}" method="POST">
                     @csrf
                     

@@ -56,14 +56,14 @@
                                     <?php
                                       if($cate_pro->status == false){
                                         ?>
-                                          <a href="{{ URL::to('/active-category/'.$cate_pro->id) }}"><span
-                                                  style="color: #999">Ẩn</span></a>
+                                          <a class="btn btn-sm btn-danger" href="{{ URL::to('/active-category/'.$cate_pro->id) }}"><span
+                                                  style="color: #fff; width: 50px; display: inline-block">Ẩn</span></a>
                                         <?php
                                       }
                                       else {
                                         ?>
-                                          <a href="{{ URL::to('/unactive-category/'.$cate_pro->id) }}"><span
-                                                  style="color: #999">Hiển thị</span></a>
+                                          <a class="btn btn-sm btn-primary" href="{{ URL::to('/unactive-category/'.$cate_pro->id) }}"><span
+                                                  style="color: #fff; width: 50px; display: inline-block">Hiển thị</span></a>
                                         <?php
                                       }
                                       ?>

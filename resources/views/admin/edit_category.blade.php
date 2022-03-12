@@ -25,13 +25,26 @@
                         <label for="exampleInputPassword1">Mô tả danh mục</label>
                         <textarea style="resize: none"  rows="10" class="form-control" name="category_product_desc" id="exampleInputPassword1" >{{$edit_cate->desc}}</textarea>
                     </div>
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <label for="exampleInputPassword1">Trạng thái danh mục</label>
-                        <select name="category_product_status" class="form-control input-sm m-bot15" value="{{$edit_cate->status}}">
+                        <select name="category_product_status" class="form-control input-sm m-bot15">
+                            <option value="{{$edit_cate->status}}">
+                            <?php
+                                      if($edit_cate->status == false){
+                                        ?>
+                                          Ẩn
+                                        <?php
+                                      }
+                                      else {
+                                          ?>
+                                        Hiển thị
+                                        <?php
+                                      }
+                                      ?></option>
                             <option value="0">Ẩn</option>
                             <option value="1">Hiển thị</option>
                         </select>
-                    </div>
+                    </div> --}}
                     <button style="width: 300px" type="submit" name="update_category_product" class="btn btn-info">Cập nhật danh mục</button>
                 </form>
                 @endforeach
