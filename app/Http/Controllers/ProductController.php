@@ -93,4 +93,10 @@ class ProductController extends Controller
         // $manager_category_product = view('admin.edit_category');
         return view('admin.edit_product')/*->with('admin.edit_category', $manager_category_product)*/->with('edit_product', $edit_product)->with('all_product_cate', $all_product_cate);
     }
+
+    public function delete_product($product_id)
+    {
+        ProductModel::where('id', $product_id)->delete();
+        return redirect()->back()->with('message', 'Xóa sản phẩm thành công');
+    }
 }
