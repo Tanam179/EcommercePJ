@@ -11,7 +11,7 @@
             <div class="panel-body">
                 <div class="position-center">
                     @foreach ($edit_product as $product)
-                        <form role="form" action="{{ URL::to('/update-product') }}" method="POST"
+                        <form role="form" action="{{ URL::to('/update-product/'.$product->id) }}" method="POST"
                             enctype="multipart/form-data">
                             @csrf
 
@@ -54,8 +54,11 @@
                                 @enderror
                                 <input type="file" name="product_img" class="form-control" id="exampleInputEmail1"
                                     placeholder="Hình ảnh sản phẩm" value="{{ $product->img }}">
-                                <img src="{{ asset('public/upload/products/' . $product->img) }}" width="150px"
+                                <div class="preview-img" style="margin: 15px 0">
+                                    <img src="/upload/products/{{$product->img}}" width="150px"
                                     height="100px" alt="">
+                                </div>
+                                <div class="img-holder"></div>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Là sản phẩm đang giảm giá??</label>
@@ -81,8 +84,9 @@
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Danh mục sản phẩm</label>
                                 <select name="product_category_id" class="form-control input-sm m-bot15">
+                                    <option selected value="{{$product->cate_id}}">{{$product->cate->name}}</option>
                                     @foreach ($all_product_cate as $all_pro_cate)
-                                        <option value="{{ $all_pro_cate->id }}">{{ $all_pro_cate->name }}</option>
+                                        <option value="{{$all_pro_cate->id}}">{{$all_pro_cate->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -94,4 +98,30 @@
             </div>
         </section>
     </div>
+    <script>
+        //Reset input file
+        $('input[type="file"][name="product_img"]').val('');
+
+        $('input[type="file"][name="product_img"]').on('change', function() {
+            const img_path = $(this)[0].value;
+            const img_holder = $('.img-holder');
+            const extension =  img_path.substring(img_path.lastIndexOf('.')+ 1).toLowerCase();
+            if(extension == 'jpeg' || extension == 'jpg' || extension == 'png'){
+                if(typeof(FileReader) != 'undefined'){
+                    img_holder.empty();
+                    const reader = new FileReader();
+                    reader.onload = function(e){
+                        $('<img/>', {'src':e.target.result, 'class':'img-fluid','style': 'width: 150px; margin-bottom: 10px; margin-top: 10px'}).appendTo(img_holder);
+                        $('.preview-img').css("display", "none");
+                    }
+                    img_holder.show();
+                    reader.readAsDataURL($(this)[0].files[0]);
+                }else{
+                    $(img_holder).html('Định dạng này không được hỗ trợ');
+                }
+            }else{
+                $(img_holder).empty();
+            }
+        })
+    </script>
 @endsection

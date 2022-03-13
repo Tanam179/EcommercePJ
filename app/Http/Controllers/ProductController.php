@@ -94,6 +94,31 @@ class ProductController extends Controller
         return view('admin.edit_product')/*->with('admin.edit_category', $manager_category_product)*/->with('edit_product', $edit_product)->with('all_product_cate', $all_product_cate);
     }
 
+    public function update_product(Request $request, $product_id)
+    {
+        $get_img = $request->product_img;
+        if ($get_img) {
+            $get_name_img = $get_img->getClientOriginalName();
+            $name_img = current(explode('.', $get_name_img));
+            $new_img = $name_img . '.' . $get_img->getClientOriginalExtension();
+            $get_img->move('upload/products', $new_img);
+
+            ProductModel::where('id', $product_id)->update([
+                'name' => $request->product_name,
+                'desc' => $request->product_desc,
+                'price' => $request->product_price,
+                'content' => $request->product_content,
+                'sale' => $request->product_sale,
+                'best_seller' => $request->product_best_seller,
+                'status' => $request->product_status,
+                'cate_id' => $request->product_category_id,
+                'img' => $new_img,
+            ]);
+        }
+        return redirect('/all-product')->with('message', 'Cập nhật sản phẩm thành công');
+    }
+
+
     public function delete_product($product_id)
     {
         ProductModel::where('id', $product_id)->delete();
