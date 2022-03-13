@@ -53,7 +53,8 @@
                                 <span style="color: red; font-size: 15px; margin-right: 10px;">{{ $message }}</span>
                             @enderror
                             <input type="file" name="product_img" class="form-control" id="exampleInputEmail1"
-                                placeholder="Hình ảnh sản phẩm" value="{{ old('product_img') }}">
+                                placeholder="Hình ảnh sản phẩm">
+                            
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Là sản phẩm đang giảm giá??</label>

@@ -19,7 +19,6 @@
                                     {{ session()->get('error_message') }}
                                 </span>
                             </div>
-                            
                         @endif
                         <div class="form-group">
                             <label for="exampleInputEmail1">Tên danh mục</label>
