@@ -28,7 +28,7 @@
     <div class="log-w3">
         <div class="w3layouts-main">
             <h2>Đăng nhập</h2>
-                <form action="{{URL::to('/admin-dashboard')}}" method="post">
+                <form action="{{URL::to('/admin-dashboard')}}" method="POST">
                     @csrf
                     <input type="email" class="ggg" name="admin_email" placeholder="E-MAIL" required="">
                     <input type="password" class="ggg" name="admin_password" placeholder="PASSWORD" required="">

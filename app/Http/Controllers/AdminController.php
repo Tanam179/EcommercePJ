@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Models\AdminModel;
+use App\Models\AdminModel;
 
 class AdminController extends Controller
 {
@@ -15,7 +15,14 @@ class AdminController extends Controller
         return view('admin.dashboard');
     }
 
-    public function dashboard(Request $request){
+    public function admin_dashboard(Request $request){
+        $email = $request->admin_email;
+        $password = md5($request->admin_password);
+
+        $real_account = AdminModel::where('admin_email', $email)->where('admin_password', $password)->first();
+        if($real_account){
+            return view('admin_layout')->with('real_account', $real_account);
+        }
 
     }
 }

@@ -50,12 +50,22 @@ class CategoryController extends Controller
         if ($validator->fails()) {
             return back()->withErrors($validator->getMessageBag())->withInput()->with('error_message', 'Có lỗi khi thêm danh mục sản phẩm, vui lòng thêm lại');/*->status(400)*/;
         }
-        CategoryModel::create([
-            'name' => $request->category_product_name,
-            'desc' => $request->category_product_desc,
-            'status' => $request->category_product_status,
-        ]);
 
+        $get_img = $request->category_product_img;
+        if ($get_img) {
+            $get_name_img = $get_img->getClientOriginalName();
+            $name_img = current(explode('.', $get_name_img));
+            $new_img = $name_img . '.' . $get_img->getClientOriginalExtension();
+            $get_img->move('upload/categories', $new_img);
+
+            CategoryModel::create([
+                'name' => $request->category_product_name,
+                'desc' => $request->category_product_desc,
+                'img' => $new_img,
+                'status' => $request->category_product_status,
+            ]);
+        }
+ 
         return redirect('/all-category')->with('message', 'Thêm danh mục sản phẩm thành công');
     }
 
@@ -68,11 +78,19 @@ class CategoryController extends Controller
 
     public function update_category_product(Request $request, $category_id)
     {
-        CategoryModel::where('id', $category_id)->update([
-            'name' => $request->category_product_name,
-            'desc' => $request->category_pro
-            // 'status' => $request->category_product_status,
-        ]);
+        $get_img = $request->category_product_img;
+        if ($get_img) {
+            $get_name_img = $get_img->getClientOriginalName();
+            $name_img = current(explode('.', $get_name_img));
+            $new_img = $name_img . '.' . $get_img->getClientOriginalExtension();
+            $get_img->move('upload/categories', $new_img);
+            CategoryModel::where('id', $category_id)->update([
+                'name' => $request->category_product_name,
+                'desc' => $request->category_product_desc,
+                'status' => $request->category_product_status,
+                'img' => $new_img,
+            ]);
+        }
         return redirect('/all-category')->with('message', 'Cập nhật danh mục sản phẩm thành công');
     }
 

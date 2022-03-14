@@ -36,8 +36,7 @@
                             </th>
                             <th>Tên danh mục</th>
                             <th>Mô tả</th>
-                            <th>Ngày thêm</th>
-                            <th>Ngày cập nhật gần đây</th>
+                            <th>Hình ảnh</th>
                             <th>Trạng thái</th>
                             <th>Tùy chọn</th>
                         </tr>
@@ -54,8 +53,9 @@
                                 </td>
                                 <td>{{ $cate_pro->name }}</td>
                                 <td><span class="text-ellipsis">{{ $cate_pro->desc }}</span></td>
-                                <td><span class="text-ellipsis">{{ $cate_pro->created_at->format('d/m/Y') }}</span></td>
-                                <td><span class="text-ellipsis">{{ $cate_pro->updated_at->format('d/m/Y') }}</span></td>
+                                <td><span class="text-ellipsis">
+                                    <img src="/upload/categories/{{$cate_pro->img}}" width="150px" height="150px" alt="">
+                                </span></td>
                                 <td><span class="text-ellipsis">
                                         <?php
                                             if($cate_pro->status == false){

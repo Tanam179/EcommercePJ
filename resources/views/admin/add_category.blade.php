@@ -11,7 +11,7 @@
             <div class="panel-body">
                 <div class="position-center">
 
-                    <form role="form" action="{{ URL::to('/save-category-product') }}" method="POST">
+                    <form role="form" action="{{ URL::to('/save-category-product') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @if (session('error_message'))
                             <div class="alert alert-danger mb-20">
@@ -38,6 +38,14 @@
                                 placeholder="Mô tả danh mục">{{ old('category_product_desc') }}</textarea>
                         </div>
                         <div class="form-group">
+                            <label for="exampleInputEmail1">Hình ảnh danh mục</label>
+                            @error('category_product_img')
+                                <span style="color: red; font-size: 15px; margin-right: 10px;">{{ $message }}</span>
+                            @enderror
+                            <input type="file" name="category_product_img" class="form-control" id="exampleInputEmail1" placeholder="Hình ảnh sản phẩm">
+                            <div class="img-holder"></div>
+                        </div>
+                        <div class="form-group">
                             <label for="exampleInputPassword1">Trạng thái danh mục</label>
                             <select name="category_product_status" class="form-control input-sm m-bot15">
                                 <option value="1">Hiển thị</option>
@@ -52,4 +60,29 @@
             </div>
         </section>
     </div>
+    <script>
+        //Reset input file
+        $('input[type="file"][name="category_product_img"]').val('');
+
+        $('input[type="file"][name="category_product_img"]').on('change', function() {
+            const img_path = $(this)[0].value;
+            const img_holder = $('.img-holder');
+            const extension =  img_path.substring(img_path.lastIndexOf('.')+ 1).toLowerCase();
+            if(extension == 'jpeg' || extension == 'jpg' || extension == 'png'){
+                if(typeof(FileReader) != 'undefined'){
+                    img_holder.empty();
+                    const reader = new FileReader();
+                    reader.onload = function(e){
+                        $('<img/>', {'src':e.target.result, 'class':'img-fluid','style': 'width: 150px; margin-bottom: 10px; margin-top: 10px'}).appendTo(img_holder);
+                    }
+                    img_holder.show();
+                    reader.readAsDataURL($(this)[0].files[0]);
+                }else{
+                    $(img_holder).html('Định dạng này không được hỗ trợ');
+                }
+            }else{
+                $(img_holder).empty();
+            }
+        })
+    </script>
 @endsection

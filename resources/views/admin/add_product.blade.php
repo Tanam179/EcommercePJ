@@ -63,7 +63,6 @@
                             <input type="file" name="product_img" class="form-control" id="exampleInputEmail1"
                                 placeholder="Hình ảnh sản phẩm" value="{{ old('product_img') }}">
                             <div class="img-holder">
-
                             </div>
                         </div>
                         <div class="form-group">
