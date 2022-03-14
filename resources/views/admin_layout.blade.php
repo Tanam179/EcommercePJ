@@ -133,7 +133,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <!-- footer -->
             <div class="footer">
                 <div class="wthree-copyright">
-                    <p>© 2022 Visitors. All rights reserved | Designed by <a href="http://w3layouts.com">{{$real_account->admin_name}}</a></p>
+                    <p>© 2022 Visitors. All rights reserved | Designed by <a href="http://w3layouts.com">Tá Nam</a></p>
                 </div>
             </div>
             <!-- / footer -->
@@ -149,7 +149,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <script src="{{ asset('../assets/js/jquery.scrollTo.js') }}"></script>
     <!-- morris JavaScript -->
     <script>
-        
         $(document).ready(function() {
             //BOX BUTTON SHOW AND CLOSE
             jQuery('.small-graph-box').hover(function() {
