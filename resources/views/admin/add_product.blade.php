@@ -98,7 +98,7 @@
                             </select>
                         </div>
                         <button style="width: 300px" type="submit" name="add_product" class="btn btn-info">Thêm
-                            danh mục</button>
+                            sản phẩm</button>
                     </form>
                 </div>
 

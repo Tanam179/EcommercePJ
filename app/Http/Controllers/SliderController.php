@@ -92,7 +92,6 @@ class SliderController extends Controller
 
             SliderModel::where('id', $slider_id)->update([
                 'name' => $request->slider_name,
-                
                 'status' => $request->slider_status,
                 'img' => $new_img,
             ]);

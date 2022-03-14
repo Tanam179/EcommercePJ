@@ -2,21 +2,23 @@
 @section('content')
     <div class="product-slider-area bg-gray-2">
         <div class="product-slider-active-5">
+            @foreach($sliders as $slider)
             <div class="single-product-slider text-center">
-                <a href="product-details.html"><img src="../assets/images/product/pro-slider-1.png" alt="product"></a>
+                <a href="product-details.html"><img src="/upload/sliders/{{$slider->img}}" alt="product"></a>
+                <h3>{{$slider->name}}</h3>
+                {{-- <span>$ 49.99</span> --}}
+            </div>
+            {{-- <div class="single-product-slider text-center">
+                <a href="product-details.html"><img src="/upload/sliders/{{$slider->img}}" alt="product"></a>
                 <h3>Lace-up suede sneake</h3>
                 <span>$ 49.99</span>
             </div>
             <div class="single-product-slider text-center">
-                <a href="product-details.html"><img src="../assets/images/product/pro-slider-2.png" alt="product"></a>
+                <a href="product-details.html"><img src="/upload/sliders/{{$slider->img}}" alt="product"></a>
                 <h3>Lace-up suede sneake</h3>
                 <span>$ 49.99</span>
-            </div>
-            <div class="single-product-slider text-center">
-                <a href="product-details.html"><img src="../assets/images/product/pro-slider-3.png" alt="product"></a>
-                <h3>Lace-up suede sneake</h3>
-                <span>$ 49.99</span>
-            </div>
+            </div> --}}
+            @endforeach
         </div>
     </div>
     <div class="banner-area section-padding-1 padding-70-row-col pt-100">
@@ -91,14 +93,14 @@
     <div class="product-area pt-70 pb-45 section-padding-1">
         <div class="container-fluid">
             <div class="section-title-9 text-center">
-                <h2>New Arrival</h2>
+                <h2>Danh mục sản phẩm</h2>
             </div>
-            <div class="product-tab-list-5 nav mt-20 mb-45">
-                <a class="active" href="#product-6" data-bs-toggle="tab">
-                    All
+            <div class="product-tab-list-5 nav mt-50 mb-45">
+                <a style="padding: 0 20px" class="active" href="#product-6" data-bs-toggle="tab">
+                    Tất cả
                 </a>
                 @foreach ($categories as $item)
-                    <a href="#product-{{ $item->id }}" data-bs-toggle="tab">
+                    <a style="padding: 0 20px" href="#product-{{ $item->id }}" data-bs-toggle="tab">
                         {{ $item->name }}
                     </a>
                 @endforeach
@@ -114,8 +116,8 @@
                                     <div class="product-img default-overlay mb-25">
                                         <a href="product-details.html">
                                             <img class="default-img" src="/upload/products/{{ $product->img }}" alt="">
-                                            <span
-                                                class="badge-black badge-left-20 badge-top-20 badge-width-height-2 badge-border-radius-100">-14.3%</span>
+                                            {{-- <span
+                                                class="badge-black badge-left-20 badge-top-20 badge-width-height-2 badge-border-radius-100">-14.3%</span> --}}
                                         </a>
                                         <div class="product-action product-action-position-1">
                                             <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
@@ -129,8 +131,8 @@
                                     <div class="product-content-4 title-font-width-400 text-center">
                                         <h3><a href="product-details.html">{{ $product->name }}</a></h3>
                                         <div class="product-price-3">
-                                            <span class="old-price">{{ $product->price }}</span>
-                                            <span class="new-price">$42.00</span>
+                                            <span class="old-price"></span>
+                                            <span class="new-price">{{number_format($product->price , 0 , ',' , ',' )}} VNĐ</span>
                                         </div>
                                     </div>
                                 </div>
@@ -416,7 +418,8 @@
                         </div> --}}
                     </div>
                 </div>
-                <div id="product-7" class="tab-pane padding-20-row-col">
+                @foreach ($categories as $item)
+                <div id="product-{{ $item->id}}" class="tab-pane padding-20-row-col">
                     <div class="row">
                         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                             <div class="product-wrap mb-60">
@@ -724,7 +727,8 @@
                         </div>
                     </div>
                 </div>
-                <div id="product-8" class="tab-pane padding-20-row-col">
+                @endforeach
+                {{-- <div id="product-" class="tab-pane padding-20-row-col">
                     <div class="row">
                         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                             <div class="product-wrap mb-60">
@@ -1034,7 +1038,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="product-9" class="tab-pane padding-20-row-col">
+                <div id="product-" class="tab-pane padding-20-row-col">
                     <div class="row">
                         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                             <div class="product-wrap mb-60">
@@ -1343,16 +1347,35 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
     <div class="product-area section-padding-1 padding-20-row-col pb-95">
         <div class="container-fluid">
             <div class="section-title-9 mb-50 text-center">
-                <h2>Featured collection</h2>
+                <h2>Sản phẩm bán chạy</h2>
             </div>
             <div class="featured-slider-active owl-carousel dot-style-2 dot-style-2-inc">
+                @foreach($products_best_seller as $best_sell)
+                <div class="banner-wrap default-overlay banner-zoom mb-10">
+                    <div class="banner-img">
+                        <a href="product-details.html"><img src="/upload/products/{{$best_sell->img}}" width="50%" height="750px"
+                                alt="banner"></a>
+                    </div>
+                    <div class="banner-content-10">
+                        <h3><a href="#">{{$best_sell->name}}</a></h3>
+                    </div>
+                </div>
+                {{-- <div class="banner-wrap default-overlay banner-zoom mb-10">
+                    <div class="banner-img">
+                        <a href="product-details.html"><img src="../assets/images/product/product-banner-2.jpg"
+                                alt="banner"></a>
+                    </div>
+                    <div class="banner-content-10">
+                        <h3><a href="#">Patent effect leather boots</a></h3>
+                    </div>
+                </div>
                 <div class="banner-wrap default-overlay banner-zoom mb-10">
                     <div class="banner-img">
                         <a href="product-details.html"><img src="../assets/images/product/product-banner-1.jpg"
@@ -1370,25 +1393,8 @@
                     <div class="banner-content-10">
                         <h3><a href="#">Patent effect leather boots</a></h3>
                     </div>
-                </div>
-                <div class="banner-wrap default-overlay banner-zoom mb-10">
-                    <div class="banner-img">
-                        <a href="product-details.html"><img src="../assets/images/product/product-banner-1.jpg"
-                                alt="banner"></a>
-                    </div>
-                    <div class="banner-content-10">
-                        <h3><a href="#">Patent effect leather boots</a></h3>
-                    </div>
-                </div>
-                <div class="banner-wrap default-overlay banner-zoom mb-10">
-                    <div class="banner-img">
-                        <a href="product-details.html"><img src="../assets/images/product/product-banner-2.jpg"
-                                alt="banner"></a>
-                    </div>
-                    <div class="banner-content-10">
-                        <h3><a href="#">Patent effect leather boots</a></h3>
-                    </div>
-                </div>
+                </div> --}}
+                @endforeach
             </div>
         </div>
     </div>

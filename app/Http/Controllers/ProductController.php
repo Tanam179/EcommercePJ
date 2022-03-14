@@ -44,7 +44,7 @@ class ProductController extends Controller
             "product_desc" => "required",
             "product_price" => "required",
             "product_content" => "required",
-            "product_img" => "required|mimes:jpg,png,jpeg,gif,svg",
+            "product_img" => "required|image",
             "product_category_id" => "required",
 
         ], [
@@ -54,7 +54,7 @@ class ProductController extends Controller
             "product_content.required" => "(* Vui lòng nhập nội dung sản phẩm)",
             "product_img.required" => "(* Vui lòng thêm hình ảnh sản phẩm)",
             "product_category_id.required" => "(* Vui lòng chọn loại sản phẩm)",
-            "product_img.mimes" => "(* Xin lỗi, định dạng này không được hỗ trợ)",
+            "product_img.image" => "(* Xin lỗi, định dạng này không được hỗ trợ)",
         ]);
         if ($validator->fails()) {
             return back()->withErrors($validator->getMessageBag())->withInput()->with('error_message', 'Có lỗi khi thêm sản phẩm, vui lòng thêm lại');/*->status(400)*/;
