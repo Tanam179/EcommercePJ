@@ -24,11 +24,14 @@
     <div class="banner-area section-padding-1 padding-70-row-col pt-100">
         <div class="container-fluid">
             <div class="row">
+                <div class="section-title-9 text-center mb-50">
+                    <h2>Sản phẩm giảm giá</h2>
+                </div>
                 @foreach($products_sale as $pro_sale)
                 <div class="col-lg-4">
                     <div class="banner-wrap default-overlay-2 banner-zoom mb-30">
                         <div class="banner-img">
-                            <a href="product-details.html"><img src="/upload/products/{{$pro_sale->img}}"
+                            <a href="product-details.html"><img src="/upload/products/{{$pro_sale->img}}" height="500px"
                                     alt="banner"></a>
                         </div>
                         <div class="banner-content-9 banner-position-8 text-center">
