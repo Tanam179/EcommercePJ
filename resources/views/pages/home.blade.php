@@ -25,15 +25,16 @@
                 <div class="col-lg-4">
                     <div class="banner-wrap default-overlay-2 banner-zoom mb-30">
                         <div class="banner-img">
-                            <a href="product-details.html"><img src="../assets/images/banner/banner-16.jpg" alt="banner"></a>
+                            <a href="product-details.html"><img src="../assets/images/banner/banner-16.jpg"
+                                    alt="banner"></a>
                         </div>
                         <div class="banner-content-9 banner-position-8 text-center">
                             <h3>Suede monk-strap shoes</h3>
                             <h2>Sale 30%</h2>
                             <span class="banner-badge">
-                            only 
-                            <strong>39.99$</strong>
-                        </span>
+                                only
+                                <strong>39.99$</strong>
+                            </span>
                         </div>
                         <div class="btn-style-2 btn-style-2-position mt-25">
                             <a class="btn-2-border-black btn-2-bg-color" href="product-details.html">
@@ -45,15 +46,16 @@
                 <div class="col-lg-4">
                     <div class="banner-wrap default-overlay-2 banner-zoom mb-30">
                         <div class="banner-img">
-                            <a href="product-details.html"><img src="../assets/images/banner/banner-17.jpg" alt="banner"></a>
+                            <a href="product-details.html"><img src="../assets/images/banner/banner-17.jpg"
+                                    alt="banner"></a>
                         </div>
                         <div class="banner-content-9 banner-position-8 text-center">
                             <h3>Suede monk-strap shoes</h3>
                             <h2>Sale 50%</h2>
                             <span class="banner-badge">
-                            only 
-                            <strong>39.99$</strong>
-                        </span>
+                                only
+                                <strong>39.99$</strong>
+                            </span>
                         </div>
                         <div class="btn-style-2 btn-style-2-position mt-25">
                             <a class="btn-2-border-black btn-2-bg-color" href="product-details.html">
@@ -65,15 +67,16 @@
                 <div class="col-lg-4">
                     <div class="banner-wrap default-overlay-2 banner-zoom mb-30">
                         <div class="banner-img">
-                            <a href="product-details.html"><img src="../assets/images/banner/banner-18.jpg" alt="banner"></a>
+                            <a href="product-details.html"><img src="../assets/images/banner/banner-18.jpg"
+                                    alt="banner"></a>
                         </div>
                         <div class="banner-content-9 banner-position-9">
                             <h3>Heel sock boots</h3>
                             <h2>Sale 50%</h2>
                             <span class="banner-badge-2">
-                            only 
-                            <strong>39.99$</strong>
-                        </span>
+                                only
+                                <strong>39.99$</strong>
+                            </span>
                         </div>
                         <div class="btn-style-2 btn-style-2-position mt-25">
                             <a class="btn-2-border-black btn-2-bg-color" href="product-details.html">
@@ -94,53 +97,60 @@
                 <a class="active" href="#product-6" data-bs-toggle="tab">
                     All
                 </a>
-                <a href="#product-7" data-bs-toggle="tab">
-                    Man
-                </a>
-                <a href="#product-8" data-bs-toggle="tab">
-                    Woman
-                </a>
-                <a href="#product-9" data-bs-toggle="tab">
-                    Kids
-                </a>
+                @foreach ($categories as $item)
+                    <a href="#product-{{ $item->id }}" data-bs-toggle="tab">
+                        {{ $item->name }}
+                    </a>
+                @endforeach
+
             </div>
+
             <div class="tab-content jump-2">
                 <div id="product-6" class="tab-pane active padding-20-row-col">
                     <div class="row">
-                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-                            <div class="product-wrap mb-60">
-                                <div class="product-img default-overlay mb-25">
-                                    <a href="product-details.html">
-                                        <img class="default-img" src="../assets/images/product/product-20.jpg" alt="">
-                                        <span class="badge-black badge-left-20 badge-top-20 badge-width-height-2 badge-border-radius-100">-14.3%</span>
-                                    </a>
-                                    <div class="product-action product-action-position-1">
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="fa fa-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a class="icon-blod" title="Add to Compare" href="#"><i class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
-                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to Cart</span></a>
+                        @foreach ($products as $product)
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
+                                <div class="product-wrap mb-60">
+                                    <div class="product-img default-overlay mb-25">
+                                        <a href="product-details.html">
+                                            <img class="default-img" src="/upload/products/{{ $product->img }}" alt="">
+                                            <span
+                                                class="badge-black badge-left-20 badge-top-20 badge-width-height-2 badge-border-radius-100">-14.3%</span>
+                                        </a>
+                                        <div class="product-action product-action-position-1">
+                                            <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
+                                                    class="fa fa-eye"></i><span>Quick Shop</span></a>
+                                            <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to
+                                                    Wishlist</span></a>
+                                            <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
+                                                    Cart</span></a>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="product-content-4 title-font-width-400 text-center">
-                                    <h3><a href="product-details.html">Dapibus ac mi shoes</a></h3>
-                                    <div class="product-price-3">
-                                        <span class="old-price">$49.00</span>
-                                        <span class="new-price">$42.00</span>
+                                    <div class="product-content-4 title-font-width-400 text-center">
+                                        <h3><a href="product-details.html">{{ $product->name }}</a></h3>
+                                        <div class="product-price-3">
+                                            <span class="old-price">{{ $product->price }}</span>
+                                            <span class="new-price">$42.00</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
+                        @endforeach
+                        {{-- <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                             <div class="product-wrap mb-50">
                                 <div class="product-img default-overlay mb-25">
                                     <a href="product-details.html">
                                         <img class="default-img" src="../assets/images/product/product-21.jpg" alt="">
                                     </a>
                                     <div class="product-action product-action-position-1">
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="fa fa-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a class="icon-blod" title="Add to Compare" href="#"><i class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
-                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to Cart</span></a>
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
+                                                class="fa fa-eye"></i><span>Quick Shop</span></a>
+                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to
+                                                Wishlist</span></a>
+                                        <a class="icon-blod" title="Add to Compare" href="#"><i
+                                                class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
+                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
+                                                Cart</span></a>
                                     </div>
                                 </div>
                                 <div class="product-content-4 title-font-width-400 text-center">
@@ -158,10 +168,14 @@
                                         <img class="default-img" src="../assets/images/product/product-22.jpg" alt="">
                                     </a>
                                     <div class="product-action product-action-position-1">
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="fa fa-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a class="icon-blod" title="Add to Compare" href="#"><i class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
-                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to Cart</span></a>
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
+                                                class="fa fa-eye"></i><span>Quick Shop</span></a>
+                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to
+                                                Wishlist</span></a>
+                                        <a class="icon-blod" title="Add to Compare" href="#"><i
+                                                class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
+                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
+                                                Cart</span></a>
                                     </div>
                                 </div>
                                 <div class="product-content-4 title-font-width-400 text-center">
@@ -179,10 +193,14 @@
                                         <img class="default-img" src="../assets/images/product/product-23.jpg" alt="">
                                     </a>
                                     <div class="product-action product-action-position-1">
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="fa fa-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a class="icon-blod" title="Add to Compare" href="#"><i class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
-                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to Cart</span></a>
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
+                                                class="fa fa-eye"></i><span>Quick Shop</span></a>
+                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to
+                                                Wishlist</span></a>
+                                        <a class="icon-blod" title="Add to Compare" href="#"><i
+                                                class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
+                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
+                                                Cart</span></a>
                                     </div>
                                 </div>
                                 <div class="product-content-4 title-font-width-400 text-center">
@@ -200,10 +218,14 @@
                                         <img class="default-img" src="../assets/images/product/product-24.jpg" alt="">
                                     </a>
                                     <div class="product-action product-action-position-1">
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="fa fa-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a class="icon-blod" title="Add to Compare" href="#"><i class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
-                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to Cart</span></a>
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
+                                                class="fa fa-eye"></i><span>Quick Shop</span></a>
+                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to
+                                                Wishlist</span></a>
+                                        <a class="icon-blod" title="Add to Compare" href="#"><i
+                                                class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
+                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
+                                                Cart</span></a>
                                     </div>
                                 </div>
                                 <div class="product-content-4 title-font-width-400 text-center">
@@ -219,13 +241,18 @@
                                 <div class="product-img default-overlay mb-25">
                                     <a href="product-details.html">
                                         <img class="default-img" src="../assets/images/product/product-25.jpg" alt="">
-                                        <span class="badge-black badge-left-20 badge-top-20 badge-width-height-2 badge-border-radius-100">-7.7%</span>
+                                        <span
+                                            class="badge-black badge-left-20 badge-top-20 badge-width-height-2 badge-border-radius-100">-7.7%</span>
                                     </a>
                                     <div class="product-action product-action-position-1">
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="fa fa-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a class="icon-blod" title="Add to Compare" href="#"><i class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
-                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to Cart</span></a>
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
+                                                class="fa fa-eye"></i><span>Quick Shop</span></a>
+                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to
+                                                Wishlist</span></a>
+                                        <a class="icon-blod" title="Add to Compare" href="#"><i
+                                                class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
+                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
+                                                Cart</span></a>
                                     </div>
                                 </div>
                                 <div class="product-content-4 title-font-width-400 text-center">
@@ -244,10 +271,14 @@
                                         <img class="default-img" src="../assets/images/product/product-26.jpg" alt="">
                                     </a>
                                     <div class="product-action product-action-position-1">
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="fa fa-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a class="icon-blod" title="Add to Compare" href="#"><i class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
-                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to Cart</span></a>
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
+                                                class="fa fa-eye"></i><span>Quick Shop</span></a>
+                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to
+                                                Wishlist</span></a>
+                                        <a class="icon-blod" title="Add to Compare" href="#"><i
+                                                class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
+                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
+                                                Cart</span></a>
                                     </div>
                                 </div>
                                 <div class="product-content-4 title-font-width-400 text-center">
@@ -265,10 +296,14 @@
                                         <img class="default-img" src="../assets/images/product/product-27.jpg" alt="">
                                     </a>
                                     <div class="product-action product-action-position-1">
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="fa fa-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a class="icon-blod" title="Add to Compare" href="#"><i class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
-                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to Cart</span></a>
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
+                                                class="fa fa-eye"></i><span>Quick Shop</span></a>
+                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to
+                                                Wishlist</span></a>
+                                        <a class="icon-blod" title="Add to Compare" href="#"><i
+                                                class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
+                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
+                                                Cart</span></a>
                                     </div>
                                 </div>
                                 <div class="product-content-4 title-font-width-400 text-center">
@@ -286,10 +321,14 @@
                                         <img class="default-img" src="../assets/images/product/product-28.jpg" alt="">
                                     </a>
                                     <div class="product-action product-action-position-1">
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="fa fa-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a class="icon-blod" title="Add to Compare" href="#"><i class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
-                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to Cart</span></a>
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
+                                                class="fa fa-eye"></i><span>Quick Shop</span></a>
+                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to
+                                                Wishlist</span></a>
+                                        <a class="icon-blod" title="Add to Compare" href="#"><i
+                                                class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
+                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
+                                                Cart</span></a>
                                     </div>
                                 </div>
                                 <div class="product-content-4 title-font-width-400 text-center">
@@ -307,10 +346,14 @@
                                         <img class="default-img" src="../assets/images/product/product-29.jpg" alt="">
                                     </a>
                                     <div class="product-action product-action-position-1">
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="fa fa-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a class="icon-blod" title="Add to Compare" href="#"><i class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
-                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to Cart</span></a>
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
+                                                class="fa fa-eye"></i><span>Quick Shop</span></a>
+                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to
+                                                Wishlist</span></a>
+                                        <a class="icon-blod" title="Add to Compare" href="#"><i
+                                                class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
+                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
+                                                Cart</span></a>
                                     </div>
                                 </div>
                                 <div class="product-content-4 title-font-width-400 text-center">
@@ -328,10 +371,14 @@
                                         <img class="default-img" src="../assets/images/product/product-30.jpg" alt="">
                                     </a>
                                     <div class="product-action product-action-position-1">
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="fa fa-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a class="icon-blod" title="Add to Compare" href="#"><i class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
-                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to Cart</span></a>
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
+                                                class="fa fa-eye"></i><span>Quick Shop</span></a>
+                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to
+                                                Wishlist</span></a>
+                                        <a class="icon-blod" title="Add to Compare" href="#"><i
+                                                class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
+                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
+                                                Cart</span></a>
                                     </div>
                                 </div>
                                 <div class="product-content-4 title-font-width-400 text-center">
@@ -349,10 +396,14 @@
                                         <img class="default-img" src="../assets/images/product/product-31.jpg" alt="">
                                     </a>
                                     <div class="product-action product-action-position-1">
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="fa fa-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a class="icon-blod" title="Add to Compare" href="#"><i class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
-                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to Cart</span></a>
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
+                                                class="fa fa-eye"></i><span>Quick Shop</span></a>
+                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to
+                                                Wishlist</span></a>
+                                        <a class="icon-blod" title="Add to Compare" href="#"><i
+                                                class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
+                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
+                                                Cart</span></a>
                                     </div>
                                 </div>
                                 <div class="product-content-4 title-font-width-400 text-center">
@@ -362,7 +413,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <div id="product-7" class="tab-pane padding-20-row-col">
@@ -372,13 +423,16 @@
                                 <div class="product-img default-overlay mb-25">
                                     <a href="product-details.html">
                                         <img class="default-img" src="../assets/images/product/product-31.jpg" alt="">
-                                        <span class="badge-black badge-left-20 badge-top-20 badge-width-height-2 badge-border-radius-100">-14.3%</span>
+                                        <span
+                                            class="badge-black badge-left-20 badge-top-20 badge-width-height-2 badge-border-radius-100">-14.3%</span>
                                     </a>
                                     <div class="product-action product-action-position-1">
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="fa fa-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a class="icon-blod" title="Add to Compare" href="#"><i class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
-                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to Cart</span></a>
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
+                                                class="fa fa-eye"></i><span>Quick Shop</span></a>
+                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to
+                                                Wishlist</span></a>
+                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
+                                                Cart</span></a>
                                     </div>
                                 </div>
                                 <div class="product-content-4 title-font-width-400 text-center">
@@ -397,10 +451,14 @@
                                         <img class="default-img" src="../assets/images/product/product-30.jpg" alt="">
                                     </a>
                                     <div class="product-action product-action-position-1">
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="fa fa-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a class="icon-blod" title="Add to Compare" href="#"><i class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
-                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to Cart</span></a>
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
+                                                class="fa fa-eye"></i><span>Quick Shop</span></a>
+                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to
+                                                Wishlist</span></a>
+                                        <a class="icon-blod" title="Add to Compare" href="#"><i
+                                                class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
+                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
+                                                Cart</span></a>
                                     </div>
                                 </div>
                                 <div class="product-content-4 title-font-width-400 text-center">
@@ -418,10 +476,14 @@
                                         <img class="default-img" src="../assets/images/product/product-29.jpg" alt="">
                                     </a>
                                     <div class="product-action product-action-position-1">
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="fa fa-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a class="icon-blod" title="Add to Compare" href="#"><i class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
-                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to Cart</span></a>
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
+                                                class="fa fa-eye"></i><span>Quick Shop</span></a>
+                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to
+                                                Wishlist</span></a>
+                                        <a class="icon-blod" title="Add to Compare" href="#"><i
+                                                class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
+                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
+                                                Cart</span></a>
                                     </div>
                                 </div>
                                 <div class="product-content-4 title-font-width-400 text-center">
@@ -439,10 +501,14 @@
                                         <img class="default-img" src="../assets/images/product/product-28.jpg" alt="">
                                     </a>
                                     <div class="product-action product-action-position-1">
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="fa fa-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a class="icon-blod" title="Add to Compare" href="#"><i class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
-                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to Cart</span></a>
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
+                                                class="fa fa-eye"></i><span>Quick Shop</span></a>
+                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to
+                                                Wishlist</span></a>
+                                        <a class="icon-blod" title="Add to Compare" href="#"><i
+                                                class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
+                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
+                                                Cart</span></a>
                                     </div>
                                 </div>
                                 <div class="product-content-4 title-font-width-400 text-center">
@@ -460,10 +526,14 @@
                                         <img class="default-img" src="../assets/images/product/product-27.jpg" alt="">
                                     </a>
                                     <div class="product-action product-action-position-1">
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="fa fa-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a class="icon-blod" title="Add to Compare" href="#"><i class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
-                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to Cart</span></a>
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
+                                                class="fa fa-eye"></i><span>Quick Shop</span></a>
+                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to
+                                                Wishlist</span></a>
+                                        <a class="icon-blod" title="Add to Compare" href="#"><i
+                                                class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
+                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
+                                                Cart</span></a>
                                     </div>
                                 </div>
                                 <div class="product-content-4 title-font-width-400 text-center">
@@ -479,13 +549,18 @@
                                 <div class="product-img default-overlay mb-25">
                                     <a href="product-details.html">
                                         <img class="default-img" src="../assets/images/product/product-26.jpg" alt="">
-                                        <span class="badge-black badge-left-20 badge-top-20 badge-width-height-2 badge-border-radius-100">-7.7%</span>
+                                        <span
+                                            class="badge-black badge-left-20 badge-top-20 badge-width-height-2 badge-border-radius-100">-7.7%</span>
                                     </a>
                                     <div class="product-action product-action-position-1">
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="fa fa-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a class="icon-blod" title="Add to Compare" href="#"><i class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
-                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to Cart</span></a>
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
+                                                class="fa fa-eye"></i><span>Quick Shop</span></a>
+                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to
+                                                Wishlist</span></a>
+                                        <a class="icon-blod" title="Add to Compare" href="#"><i
+                                                class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
+                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
+                                                Cart</span></a>
                                     </div>
                                 </div>
                                 <div class="product-content-4 title-font-width-400 text-center">
@@ -504,10 +579,14 @@
                                         <img class="default-img" src="../assets/images/product/product-25.jpg" alt="">
                                     </a>
                                     <div class="product-action product-action-position-1">
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="fa fa-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a class="icon-blod" title="Add to Compare" href="#"><i class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
-                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to Cart</span></a>
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
+                                                class="fa fa-eye"></i><span>Quick Shop</span></a>
+                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to
+                                                Wishlist</span></a>
+                                        <a class="icon-blod" title="Add to Compare" href="#"><i
+                                                class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
+                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
+                                                Cart</span></a>
                                     </div>
                                 </div>
                                 <div class="product-content-4 title-font-width-400 text-center">
@@ -525,10 +604,14 @@
                                         <img class="default-img" src="../assets/images/product/product-24.jpg" alt="">
                                     </a>
                                     <div class="product-action product-action-position-1">
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="fa fa-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a class="icon-blod" title="Add to Compare" href="#"><i class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
-                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to Cart</span></a>
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
+                                                class="fa fa-eye"></i><span>Quick Shop</span></a>
+                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to
+                                                Wishlist</span></a>
+                                        <a class="icon-blod" title="Add to Compare" href="#"><i
+                                                class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
+                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
+                                                Cart</span></a>
                                     </div>
                                 </div>
                                 <div class="product-content-4 title-font-width-400 text-center">
@@ -546,10 +629,14 @@
                                         <img class="default-img" src="../assets/images/product/product-23.jpg" alt="">
                                     </a>
                                     <div class="product-action product-action-position-1">
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="fa fa-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a class="icon-blod" title="Add to Compare" href="#"><i class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
-                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to Cart</span></a>
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
+                                                class="fa fa-eye"></i><span>Quick Shop</span></a>
+                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to
+                                                Wishlist</span></a>
+                                        <a class="icon-blod" title="Add to Compare" href="#"><i
+                                                class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
+                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
+                                                Cart</span></a>
                                     </div>
                                 </div>
                                 <div class="product-content-4 title-font-width-400 text-center">
@@ -567,10 +654,14 @@
                                         <img class="default-img" src="../assets/images/product/product-22.jpg" alt="">
                                     </a>
                                     <div class="product-action product-action-position-1">
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="fa fa-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a class="icon-blod" title="Add to Compare" href="#"><i class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
-                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to Cart</span></a>
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
+                                                class="fa fa-eye"></i><span>Quick Shop</span></a>
+                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to
+                                                Wishlist</span></a>
+                                        <a class="icon-blod" title="Add to Compare" href="#"><i
+                                                class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
+                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
+                                                Cart</span></a>
                                     </div>
                                 </div>
                                 <div class="product-content-4 title-font-width-400 text-center">
@@ -588,10 +679,14 @@
                                         <img class="default-img" src="../assets/images/product/product-21.jpg" alt="">
                                     </a>
                                     <div class="product-action product-action-position-1">
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="fa fa-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a class="icon-blod" title="Add to Compare" href="#"><i class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
-                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to Cart</span></a>
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
+                                                class="fa fa-eye"></i><span>Quick Shop</span></a>
+                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to
+                                                Wishlist</span></a>
+                                        <a class="icon-blod" title="Add to Compare" href="#"><i
+                                                class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
+                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
+                                                Cart</span></a>
                                     </div>
                                 </div>
                                 <div class="product-content-4 title-font-width-400 text-center">
@@ -609,10 +704,14 @@
                                         <img class="default-img" src="../assets/images/product/product-20.jpg" alt="">
                                     </a>
                                     <div class="product-action product-action-position-1">
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="fa fa-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a class="icon-blod" title="Add to Compare" href="#"><i class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
-                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to Cart</span></a>
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
+                                                class="fa fa-eye"></i><span>Quick Shop</span></a>
+                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to
+                                                Wishlist</span></a>
+                                        <a class="icon-blod" title="Add to Compare" href="#"><i
+                                                class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
+                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
+                                                Cart</span></a>
                                     </div>
                                 </div>
                                 <div class="product-content-4 title-font-width-400 text-center">
@@ -632,13 +731,18 @@
                                 <div class="product-img default-overlay mb-25">
                                     <a href="product-details.html">
                                         <img class="default-img" src="../assets/images/product/product-25.jpg" alt="">
-                                        <span class="badge-black badge-left-20 badge-top-20 badge-width-height-2 badge-border-radius-100">-14.3%</span>
+                                        <span
+                                            class="badge-black badge-left-20 badge-top-20 badge-width-height-2 badge-border-radius-100">-14.3%</span>
                                     </a>
                                     <div class="product-action product-action-position-1">
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="fa fa-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a class="icon-blod" title="Add to Compare" href="#"><i class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
-                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to Cart</span></a>
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
+                                                class="fa fa-eye"></i><span>Quick Shop</span></a>
+                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to
+                                                Wishlist</span></a>
+                                        <a class="icon-blod" title="Add to Compare" href="#"><i
+                                                class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
+                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
+                                                Cart</span></a>
                                     </div>
                                 </div>
                                 <div class="product-content-4 title-font-width-400 text-center">
@@ -657,10 +761,14 @@
                                         <img class="default-img" src="../assets/images/product/product-26.jpg" alt="">
                                     </a>
                                     <div class="product-action product-action-position-1">
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="fa fa-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a class="icon-blod" title="Add to Compare" href="#"><i class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
-                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to Cart</span></a>
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
+                                                class="fa fa-eye"></i><span>Quick Shop</span></a>
+                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to
+                                                Wishlist</span></a>
+                                        <a class="icon-blod" title="Add to Compare" href="#"><i
+                                                class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
+                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
+                                                Cart</span></a>
                                     </div>
                                 </div>
                                 <div class="product-content-4 title-font-width-400 text-center">
@@ -678,10 +786,14 @@
                                         <img class="default-img" src="../assets/images/product/product-27.jpg" alt="">
                                     </a>
                                     <div class="product-action product-action-position-1">
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="fa fa-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a class="icon-blod" title="Add to Compare" href="#"><i class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
-                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to Cart</span></a>
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
+                                                class="fa fa-eye"></i><span>Quick Shop</span></a>
+                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to
+                                                Wishlist</span></a>
+                                        <a class="icon-blod" title="Add to Compare" href="#"><i
+                                                class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
+                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
+                                                Cart</span></a>
                                     </div>
                                 </div>
                                 <div class="product-content-4 title-font-width-400 text-center">
@@ -699,10 +811,14 @@
                                         <img class="default-img" src="../assets/images/product/product-28.jpg" alt="">
                                     </a>
                                     <div class="product-action product-action-position-1">
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="fa fa-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a class="icon-blod" title="Add to Compare" href="#"><i class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
-                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to Cart</span></a>
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
+                                                class="fa fa-eye"></i><span>Quick Shop</span></a>
+                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to
+                                                Wishlist</span></a>
+                                        <a class="icon-blod" title="Add to Compare" href="#"><i
+                                                class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
+                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
+                                                Cart</span></a>
                                     </div>
                                 </div>
                                 <div class="product-content-4 title-font-width-400 text-center">
@@ -720,10 +836,14 @@
                                         <img class="default-img" src="../assets/images/product/product-29.jpg" alt="">
                                     </a>
                                     <div class="product-action product-action-position-1">
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="fa fa-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a class="icon-blod" title="Add to Compare" href="#"><i class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
-                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to Cart</span></a>
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
+                                                class="fa fa-eye"></i><span>Quick Shop</span></a>
+                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to
+                                                Wishlist</span></a>
+                                        <a class="icon-blod" title="Add to Compare" href="#"><i
+                                                class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
+                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
+                                                Cart</span></a>
                                     </div>
                                 </div>
                                 <div class="product-content-4 title-font-width-400 text-center">
@@ -739,13 +859,18 @@
                                 <div class="product-img default-overlay mb-25">
                                     <a href="product-details.html">
                                         <img class="default-img" src="../assets/images/product/product-30.jpg" alt="">
-                                        <span class="badge-black badge-left-20 badge-top-20 badge-width-height-2 badge-border-radius-100">-7.7%</span>
+                                        <span
+                                            class="badge-black badge-left-20 badge-top-20 badge-width-height-2 badge-border-radius-100">-7.7%</span>
                                     </a>
                                     <div class="product-action product-action-position-1">
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="fa fa-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a class="icon-blod" title="Add to Compare" href="#"><i class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
-                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to Cart</span></a>
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
+                                                class="fa fa-eye"></i><span>Quick Shop</span></a>
+                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to
+                                                Wishlist</span></a>
+                                        <a class="icon-blod" title="Add to Compare" href="#"><i
+                                                class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
+                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
+                                                Cart</span></a>
                                     </div>
                                 </div>
                                 <div class="product-content-4 title-font-width-400 text-center">
@@ -764,10 +889,14 @@
                                         <img class="default-img" src="../assets/images/product/product-31.jpg" alt="">
                                     </a>
                                     <div class="product-action product-action-position-1">
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="fa fa-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a class="icon-blod" title="Add to Compare" href="#"><i class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
-                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to Cart</span></a>
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
+                                                class="fa fa-eye"></i><span>Quick Shop</span></a>
+                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to
+                                                Wishlist</span></a>
+                                        <a class="icon-blod" title="Add to Compare" href="#"><i
+                                                class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
+                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
+                                                Cart</span></a>
                                     </div>
                                 </div>
                                 <div class="product-content-4 title-font-width-400 text-center">
@@ -785,10 +914,14 @@
                                         <img class="default-img" src="../assets/images/product/product-24.jpg" alt="">
                                     </a>
                                     <div class="product-action product-action-position-1">
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="fa fa-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a class="icon-blod" title="Add to Compare" href="#"><i class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
-                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to Cart</span></a>
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
+                                                class="fa fa-eye"></i><span>Quick Shop</span></a>
+                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to
+                                                Wishlist</span></a>
+                                        <a class="icon-blod" title="Add to Compare" href="#"><i
+                                                class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
+                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
+                                                Cart</span></a>
                                     </div>
                                 </div>
                                 <div class="product-content-4 title-font-width-400 text-center">
@@ -806,10 +939,14 @@
                                         <img class="default-img" src="../assets/images/product/product-23.jpg" alt="">
                                     </a>
                                     <div class="product-action product-action-position-1">
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="fa fa-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a class="icon-blod" title="Add to Compare" href="#"><i class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
-                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to Cart</span></a>
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
+                                                class="fa fa-eye"></i><span>Quick Shop</span></a>
+                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to
+                                                Wishlist</span></a>
+                                        <a class="icon-blod" title="Add to Compare" href="#"><i
+                                                class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
+                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
+                                                Cart</span></a>
                                     </div>
                                 </div>
                                 <div class="product-content-4 title-font-width-400 text-center">
@@ -827,10 +964,14 @@
                                         <img class="default-img" src="../assets/images/product/product-22.jpg" alt="">
                                     </a>
                                     <div class="product-action product-action-position-1">
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="fa fa-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a class="icon-blod" title="Add to Compare" href="#"><i class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
-                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to Cart</span></a>
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
+                                                class="fa fa-eye"></i><span>Quick Shop</span></a>
+                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to
+                                                Wishlist</span></a>
+                                        <a class="icon-blod" title="Add to Compare" href="#"><i
+                                                class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
+                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
+                                                Cart</span></a>
                                     </div>
                                 </div>
                                 <div class="product-content-4 title-font-width-400 text-center">
@@ -848,10 +989,14 @@
                                         <img class="default-img" src="../assets/images/product/product-21.jpg" alt="">
                                     </a>
                                     <div class="product-action product-action-position-1">
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="fa fa-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a class="icon-blod" title="Add to Compare" href="#"><i class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
-                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to Cart</span></a>
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
+                                                class="fa fa-eye"></i><span>Quick Shop</span></a>
+                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to
+                                                Wishlist</span></a>
+                                        <a class="icon-blod" title="Add to Compare" href="#"><i
+                                                class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
+                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
+                                                Cart</span></a>
                                     </div>
                                 </div>
                                 <div class="product-content-4 title-font-width-400 text-center">
@@ -869,10 +1014,14 @@
                                         <img class="default-img" src="../assets/images/product/product-20.jpg" alt="">
                                     </a>
                                     <div class="product-action product-action-position-1">
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="fa fa-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a class="icon-blod" title="Add to Compare" href="#"><i class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
-                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to Cart</span></a>
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
+                                                class="fa fa-eye"></i><span>Quick Shop</span></a>
+                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to
+                                                Wishlist</span></a>
+                                        <a class="icon-blod" title="Add to Compare" href="#"><i
+                                                class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
+                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
+                                                Cart</span></a>
                                     </div>
                                 </div>
                                 <div class="product-content-4 title-font-width-400 text-center">
@@ -892,13 +1041,18 @@
                                 <div class="product-img default-overlay mb-25">
                                     <a href="product-details.html">
                                         <img class="default-img" src="../assets/images/product/product-26.jpg" alt="">
-                                        <span class="badge-black badge-left-20 badge-top-20 badge-width-height-2 badge-border-radius-100">-14.3%</span>
+                                        <span
+                                            class="badge-black badge-left-20 badge-top-20 badge-width-height-2 badge-border-radius-100">-14.3%</span>
                                     </a>
                                     <div class="product-action product-action-position-1">
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="fa fa-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a class="icon-blod" title="Add to Compare" href="#"><i class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
-                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to Cart</span></a>
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
+                                                class="fa fa-eye"></i><span>Quick Shop</span></a>
+                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to
+                                                Wishlist</span></a>
+                                        <a class="icon-blod" title="Add to Compare" href="#"><i
+                                                class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
+                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
+                                                Cart</span></a>
                                     </div>
                                 </div>
                                 <div class="product-content-4 title-font-width-400 text-center">
@@ -917,10 +1071,14 @@
                                         <img class="default-img" src="../assets/images/product/product-25.jpg" alt="">
                                     </a>
                                     <div class="product-action product-action-position-1">
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="fa fa-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a class="icon-blod" title="Add to Compare" href="#"><i class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
-                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to Cart</span></a>
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
+                                                class="fa fa-eye"></i><span>Quick Shop</span></a>
+                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to
+                                                Wishlist</span></a>
+                                        <a class="icon-blod" title="Add to Compare" href="#"><i
+                                                class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
+                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
+                                                Cart</span></a>
                                     </div>
                                 </div>
                                 <div class="product-content-4 title-font-width-400 text-center">
@@ -938,10 +1096,14 @@
                                         <img class="default-img" src="../assets/images/product/product-24.jpg" alt="">
                                     </a>
                                     <div class="product-action product-action-position-1">
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="fa fa-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a class="icon-blod" title="Add to Compare" href="#"><i class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
-                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to Cart</span></a>
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
+                                                class="fa fa-eye"></i><span>Quick Shop</span></a>
+                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to
+                                                Wishlist</span></a>
+                                        <a class="icon-blod" title="Add to Compare" href="#"><i
+                                                class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
+                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
+                                                Cart</span></a>
                                     </div>
                                 </div>
                                 <div class="product-content-4 title-font-width-400 text-center">
@@ -959,10 +1121,14 @@
                                         <img class="default-img" src="../assets/images/product/product-27.jpg" alt="">
                                     </a>
                                     <div class="product-action product-action-position-1">
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="fa fa-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a class="icon-blod" title="Add to Compare" href="#"><i class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
-                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to Cart</span></a>
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
+                                                class="fa fa-eye"></i><span>Quick Shop</span></a>
+                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to
+                                                Wishlist</span></a>
+                                        <a class="icon-blod" title="Add to Compare" href="#"><i
+                                                class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
+                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
+                                                Cart</span></a>
                                     </div>
                                 </div>
                                 <div class="product-content-4 title-font-width-400 text-center">
@@ -980,10 +1146,14 @@
                                         <img class="default-img" src="../assets/images/product/product-28.jpg" alt="">
                                     </a>
                                     <div class="product-action product-action-position-1">
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="fa fa-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a class="icon-blod" title="Add to Compare" href="#"><i class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
-                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to Cart</span></a>
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
+                                                class="fa fa-eye"></i><span>Quick Shop</span></a>
+                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to
+                                                Wishlist</span></a>
+                                        <a class="icon-blod" title="Add to Compare" href="#"><i
+                                                class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
+                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
+                                                Cart</span></a>
                                     </div>
                                 </div>
                                 <div class="product-content-4 title-font-width-400 text-center">
@@ -999,13 +1169,18 @@
                                 <div class="product-img default-overlay mb-25">
                                     <a href="product-details.html">
                                         <img class="default-img" src="../assets/images/product/product-29.jpg" alt="">
-                                        <span class="badge-black badge-left-20 badge-top-20 badge-width-height-2 badge-border-radius-100">-7.7%</span>
+                                        <span
+                                            class="badge-black badge-left-20 badge-top-20 badge-width-height-2 badge-border-radius-100">-7.7%</span>
                                     </a>
                                     <div class="product-action product-action-position-1">
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="fa fa-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a class="icon-blod" title="Add to Compare" href="#"><i class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
-                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to Cart</span></a>
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
+                                                class="fa fa-eye"></i><span>Quick Shop</span></a>
+                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to
+                                                Wishlist</span></a>
+                                        <a class="icon-blod" title="Add to Compare" href="#"><i
+                                                class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
+                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
+                                                Cart</span></a>
                                     </div>
                                 </div>
                                 <div class="product-content-4 title-font-width-400 text-center">
@@ -1024,10 +1199,14 @@
                                         <img class="default-img" src="../assets/images/product/product-30.jpg" alt="">
                                     </a>
                                     <div class="product-action product-action-position-1">
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="fa fa-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a class="icon-blod" title="Add to Compare" href="#"><i class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
-                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to Cart</span></a>
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
+                                                class="fa fa-eye"></i><span>Quick Shop</span></a>
+                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to
+                                                Wishlist</span></a>
+                                        <a class="icon-blod" title="Add to Compare" href="#"><i
+                                                class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
+                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
+                                                Cart</span></a>
                                     </div>
                                 </div>
                                 <div class="product-content-4 title-font-width-400 text-center">
@@ -1045,10 +1224,14 @@
                                         <img class="default-img" src="../assets/images/product/product-31.jpg" alt="">
                                     </a>
                                     <div class="product-action product-action-position-1">
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="fa fa-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a class="icon-blod" title="Add to Compare" href="#"><i class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
-                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to Cart</span></a>
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
+                                                class="fa fa-eye"></i><span>Quick Shop</span></a>
+                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to
+                                                Wishlist</span></a>
+                                        <a class="icon-blod" title="Add to Compare" href="#"><i
+                                                class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
+                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
+                                                Cart</span></a>
                                     </div>
                                 </div>
                                 <div class="product-content-4 title-font-width-400 text-center">
@@ -1066,10 +1249,14 @@
                                         <img class="default-img" src="../assets/images/product/product-23.jpg" alt="">
                                     </a>
                                     <div class="product-action product-action-position-1">
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="fa fa-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a class="icon-blod" title="Add to Compare" href="#"><i class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
-                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to Cart</span></a>
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
+                                                class="fa fa-eye"></i><span>Quick Shop</span></a>
+                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to
+                                                Wishlist</span></a>
+                                        <a class="icon-blod" title="Add to Compare" href="#"><i
+                                                class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
+                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
+                                                Cart</span></a>
                                     </div>
                                 </div>
                                 <div class="product-content-4 title-font-width-400 text-center">
@@ -1087,10 +1274,14 @@
                                         <img class="default-img" src="../assets/images/product/product-22.jpg" alt="">
                                     </a>
                                     <div class="product-action product-action-position-1">
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="fa fa-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a class="icon-blod" title="Add to Compare" href="#"><i class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
-                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to Cart</span></a>
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
+                                                class="fa fa-eye"></i><span>Quick Shop</span></a>
+                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to
+                                                Wishlist</span></a>
+                                        <a class="icon-blod" title="Add to Compare" href="#"><i
+                                                class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
+                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
+                                                Cart</span></a>
                                     </div>
                                 </div>
                                 <div class="product-content-4 title-font-width-400 text-center">
@@ -1108,10 +1299,14 @@
                                         <img class="default-img" src="../assets/images/product/product-21.jpg" alt="">
                                     </a>
                                     <div class="product-action product-action-position-1">
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="fa fa-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a class="icon-blod" title="Add to Compare" href="#"><i class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
-                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to Cart</span></a>
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
+                                                class="fa fa-eye"></i><span>Quick Shop</span></a>
+                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to
+                                                Wishlist</span></a>
+                                        <a class="icon-blod" title="Add to Compare" href="#"><i
+                                                class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
+                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
+                                                Cart</span></a>
                                     </div>
                                 </div>
                                 <div class="product-content-4 title-font-width-400 text-center">
@@ -1129,10 +1324,14 @@
                                         <img class="default-img" src="../assets/images/product/product-20.jpg" alt="">
                                     </a>
                                     <div class="product-action product-action-position-1">
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="fa fa-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a class="icon-blod" title="Add to Compare" href="#"><i class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
-                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to Cart</span></a>
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
+                                                class="fa fa-eye"></i><span>Quick Shop</span></a>
+                                        <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to
+                                                Wishlist</span></a>
+                                        <a class="icon-blod" title="Add to Compare" href="#"><i
+                                                class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
+                                        <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
+                                                Cart</span></a>
                                     </div>
                                 </div>
                                 <div class="product-content-4 title-font-width-400 text-center">
@@ -1156,7 +1355,8 @@
             <div class="featured-slider-active owl-carousel dot-style-2 dot-style-2-inc">
                 <div class="banner-wrap default-overlay banner-zoom mb-10">
                     <div class="banner-img">
-                        <a href="product-details.html"><img src="../assets/images/product/product-banner-1.jpg" alt="banner"></a>
+                        <a href="product-details.html"><img src="../assets/images/product/product-banner-1.jpg"
+                                alt="banner"></a>
                     </div>
                     <div class="banner-content-10">
                         <h3><a href="#">Patent effect leather boots</a></h3>
@@ -1164,7 +1364,8 @@
                 </div>
                 <div class="banner-wrap default-overlay banner-zoom mb-10">
                     <div class="banner-img">
-                        <a href="product-details.html"><img src="../assets/images/product/product-banner-2.jpg" alt="banner"></a>
+                        <a href="product-details.html"><img src="../assets/images/product/product-banner-2.jpg"
+                                alt="banner"></a>
                     </div>
                     <div class="banner-content-10">
                         <h3><a href="#">Patent effect leather boots</a></h3>
@@ -1172,7 +1373,8 @@
                 </div>
                 <div class="banner-wrap default-overlay banner-zoom mb-10">
                     <div class="banner-img">
-                        <a href="product-details.html"><img src="../assets/images/product/product-banner-1.jpg" alt="banner"></a>
+                        <a href="product-details.html"><img src="../assets/images/product/product-banner-1.jpg"
+                                alt="banner"></a>
                     </div>
                     <div class="banner-content-10">
                         <h3><a href="#">Patent effect leather boots</a></h3>
@@ -1180,7 +1382,8 @@
                 </div>
                 <div class="banner-wrap default-overlay banner-zoom mb-10">
                     <div class="banner-img">
-                        <a href="product-details.html"><img src="../assets/images/product/product-banner-2.jpg" alt="banner"></a>
+                        <a href="product-details.html"><img src="../assets/images/product/product-banner-2.jpg"
+                                alt="banner"></a>
                     </div>
                     <div class="banner-content-10">
                         <h3><a href="#">Patent effect leather boots</a></h3>
@@ -1189,12 +1392,16 @@
             </div>
         </div>
     </div>
-    <div class="testimonial-area jarallax parallax-img pt-80 pb-80" style="background-image:url(../assets/images/bg/bg-6.jpg);">
+    <div class="testimonial-area jarallax parallax-img pt-80 pb-80"
+        style="background-image:url(../assets/images/bg/bg-6.jpg);">
         <div class="container">
             <div class="testimonial-active owl-carousel">
                 <div class="single-testimonial text-center">
                     <img src="../assets/images/icon-img/testimonial-icon.png" alt="testimonial">
-                    <p>I love all this theme and love the versatility of it. So many things just work the way they should right out of the box! No complicated anything to deal with! Best of all is the great customer support - every time I have contacted them for help with custom CSS issues I get a reply within 24 hours. That is fantastic!</p>
+                    <p>I love all this theme and love the versatility of it. So many things just work the way they should
+                        right out of the box! No complicated anything to deal with! Best of all is the great customer
+                        support - every time I have contacted them for help with custom CSS issues I get a reply within 24
+                        hours. That is fantastic!</p>
                     <div class="client-info">
                         <img src="../assets/images/testimonial/client-img-1.jpg" alt="testimonial">
                         <span>Mary Scott - Founder & CEO</span>
@@ -1202,7 +1409,10 @@
                 </div>
                 <div class="single-testimonial text-center">
                     <img src="../assets/images/icon-img/testimonial-icon.png" alt="testimonial">
-                    <p>I love all this theme and love the versatility of it. So many things just work the way they should right out of the box! No complicated anything to deal with! Best of all is the great customer support - every time I have contacted them for help with custom CSS issues I get a reply within 24 hours. That is fantastic!</p>
+                    <p>I love all this theme and love the versatility of it. So many things just work the way they should
+                        right out of the box! No complicated anything to deal with! Best of all is the great customer
+                        support - every time I have contacted them for help with custom CSS issues I get a reply within 24
+                        hours. That is fantastic!</p>
                     <div class="client-info">
                         <img src="../assets/images/testimonial/client-img-1.jpg" alt="testimonial">
                         <span>Mary Scott - Founder & CEO</span>
@@ -1220,14 +1430,18 @@
                         <p>Sale up to 20% off for your next purchase in this month!</p>
                     </div>
                     <div id="mc_embed_signup" class="subscribe-form-2">
-                        <form id="mc-embedded-subscribe-form" class="validate" novalidate="" target="_blank" name="mc-embedded-subscribe-form" method="post" action="https://devitems.us11.list-manage.com/subscribe/post?u=6bbb9b6f5827bd842d9640c82&amp;id=05d85f18ef">
+                        <form id="mc-embedded-subscribe-form" class="validate" novalidate="" target="_blank"
+                            name="mc-embedded-subscribe-form" method="post"
+                            action="https://devitems.us11.list-manage.com/subscribe/post?u=6bbb9b6f5827bd842d9640c82&amp;id=05d85f18ef">
                             <div id="mc_embed_signup_scroll" class="mc-form-2">
-                                <input class="email" type="email" required="" placeholder="Your email address…" name="EMAIL" value="">
+                                <input class="email" type="email" required="" placeholder="Your email address…"
+                                    name="EMAIL" value="">
                                 <div class="mc-news-2" aria-hidden="true">
                                     <input type="text" value="" tabindex="-1" name="b_6bbb9b6f5827bd842d9640c82_05d85f18ef">
                                 </div>
                                 <div class="clear-2">
-                                    <input id="mc-embedded-subscribe" class="button" type="submit" name="subscribe" value="Subscribe">
+                                    <input id="mc-embedded-subscribe" class="button" type="submit" name="subscribe"
+                                        value="Subscribe">
                                 </div>
                             </div>
                         </form>

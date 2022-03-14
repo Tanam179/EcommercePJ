@@ -67,7 +67,7 @@ class ProductController extends Controller
             $get_name_img = $get_img->getClientOriginalName();
             $name_img = current(explode('.', $get_name_img));
             $new_img = $name_img . '.' . $get_img->getClientOriginalExtension();
-            $get_img->move('upload/products', $new_img);
+            $get_img->move('/upload/products', $new_img);
 
             ProductModel::create([
                 'name' => $request->product_name,
