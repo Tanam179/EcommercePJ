@@ -20,8 +20,9 @@ return new class extends Migration
             $table->integer('price');
             $table->text('content');
             $table->string('img');
-            $table->boolean('sale')->default(false);
-            $table->boolean('best_seller')->default(false);
+            $table->boolean('sale');
+            $table->integer('sale_percent');
+            $table->boolean('best_seller');
             $table->boolean('status');
             $table->foreignId('cate_id');
             $table->foreign('cate_id')->references('id')->on('categories_product')->onDelete('cascade');

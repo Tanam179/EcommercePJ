@@ -55,7 +55,7 @@
                                 </td>
                                 <td>{{ $all_pro->name }}</td>
                                 <td><span class="text-ellipsis">{{ $all_pro->price }}</span></td>
-                                <td><span class="text-ellipsis"><img src="/upload/products/{{$all_pro->img }}" width="150px" height="100px"></span></td>
+                                <td><span class="text-ellipsis"><img src="/upload/products/{{$all_pro->img}}" width="150px" height="100px"></span></td>
                                 <td><span class="text-ellipsis">{{ $all_pro->cate->name }}</span></td>
                                 {{-- <td><span class="text-ellipsis">{{ $all_pro->created_at->format('d/m/Y') }}</span></td>
                                 <td><span class="text-ellipsis">{{ $all_pro->updated_at->format('d/m/Y') }}</span></td> --}}

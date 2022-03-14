@@ -24,18 +24,21 @@
     <div class="banner-area section-padding-1 padding-70-row-col pt-100">
         <div class="container-fluid">
             <div class="row">
+                @foreach($products_sale as $pro_sale)
                 <div class="col-lg-4">
                     <div class="banner-wrap default-overlay-2 banner-zoom mb-30">
                         <div class="banner-img">
-                            <a href="product-details.html"><img src="../assets/images/banner/banner-16.jpg"
+                            <a href="product-details.html"><img src="/upload/products/{{$pro_sale->img}}"
                                     alt="banner"></a>
                         </div>
                         <div class="banner-content-9 banner-position-8 text-center">
-                            <h3>Suede monk-strap shoes</h3>
-                            <h2>Sale 30%</h2>
-                            <span class="banner-badge">
-                                only
-                                <strong>39.99$</strong>
+                            <h3>{{$pro_sale->name}}</h3>
+                            <h2>Sale {{$pro_sale->sale_percent}}%</h2>
+                            <span style="top: 100px; right: 45px" class="banner-badge">
+                                
+                                <span>Only
+                                    <strong style="font-size: 13px">{{number_format($pro_sale->price -  ($pro_sale->price * $pro_sale->sale_percent / 100))}}</strong>
+                                </span>
                             </span>
                         </div>
                         <div class="btn-style-2 btn-style-2-position mt-25">
@@ -45,55 +48,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="banner-wrap default-overlay-2 banner-zoom mb-30">
-                        <div class="banner-img">
-                            <a href="product-details.html"><img src="../assets/images/banner/banner-17.jpg"
-                                    alt="banner"></a>
-                        </div>
-                        <div class="banner-content-9 banner-position-8 text-center">
-                            <h3>Suede monk-strap shoes</h3>
-                            <h2>Sale 50%</h2>
-                            <span class="banner-badge">
-                                only
-                                <strong>39.99$</strong>
-                            </span>
-                        </div>
-                        <div class="btn-style-2 btn-style-2-position mt-25">
-                            <a class="btn-2-border-black btn-2-bg-color" href="product-details.html">
-                                Shop now
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="banner-wrap default-overlay-2 banner-zoom mb-30">
-                        <div class="banner-img">
-                            <a href="product-details.html"><img src="../assets/images/banner/banner-18.jpg"
-                                    alt="banner"></a>
-                        </div>
-                        <div class="banner-content-9 banner-position-9">
-                            <h3>Heel sock boots</h3>
-                            <h2>Sale 50%</h2>
-                            <span class="banner-badge-2">
-                                only
-                                <strong>39.99$</strong>
-                            </span>
-                        </div>
-                        <div class="btn-style-2 btn-style-2-position mt-25">
-                            <a class="btn-2-border-black btn-2-bg-color" href="product-details.html">
-                                Shop now
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
     <div class="product-area pt-70 pb-45 section-padding-1">
         <div class="container-fluid">
             <div class="section-title-9 text-center">
-                <h2>Danh mục sản phẩm</h2>
+                <h2>Danh sách sản phẩm</h2>
             </div>
             <div class="product-tab-list-5 nav mt-50 mb-45">
                 <a style="padding: 0 20px" class="active" href="#product-6" data-bs-toggle="tab">
@@ -110,6 +72,7 @@
             <div class="tab-content jump-2">
                 <div id="product-6" class="tab-pane active padding-20-row-col">
                     <div class="row">
+                        
                         @foreach ($products as $product)
                             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                                 <div class="product-wrap mb-60">
@@ -131,8 +94,13 @@
                                     <div class="product-content-4 title-font-width-400 text-center">
                                         <h3><a href="product-details.html">{{ $product->name }}</a></h3>
                                         <div class="product-price-3">
+                                            @if($product->sale == 1)
+                                            <span class="old-price">{{number_format($product->price , 0 , ',' , ',' )}} VNĐ</span>
+                                            <span class="new-price">{{number_format($product->price -  ($product->price * $product->sale_percent / 100))}}VNĐ</span>
+                                            @else
                                             <span class="old-price"></span>
                                             <span class="new-price">{{number_format($product->price , 0 , ',' , ',' )}} VNĐ</span>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -1360,7 +1328,7 @@
                 @foreach($products_best_seller as $best_sell)
                 <div class="banner-wrap default-overlay banner-zoom mb-10">
                     <div class="banner-img">
-                        <a href="product-details.html"><img src="/upload/products/{{$best_sell->img}}" width="50%" height="750px"
+                        <a href="product-details.html"><img src="/upload/products/{{$best_sell->img}}" width="50%" height="750px" style="object-fit: cover"
                                 alt="banner"></a>
                     </div>
                     <div class="banner-content-10">
