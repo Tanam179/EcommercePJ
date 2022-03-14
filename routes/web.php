@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SliderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,3 +47,14 @@ Route::post('/save-product', [ProductController::class, 'save_product']);
 Route::get('/edit-product/{product_id}', [ProductController::class, 'edit_product']);
 Route::post('/update-product/{product_id}', [ProductController::class, 'update_product']);
 Route::get('/delete-product/{product_id}', [ProductController::class, 'delete_product']);
+
+
+//SLIDER
+Route::get('/add-slider', [SliderController::class, 'add_slider']);
+Route::get('/all-slider', [SliderController::class, 'all_slider']);
+Route::get('/active-slider/{slider_id}', [SliderController::class, 'active_slider']);
+Route::get('/unactive-slider/{slider_id}', [SliderController::class, 'unactive_slider']);
+Route::post('/save-slider', [SliderController::class, 'save_slider']);
+Route::get('/edit-slider/{slider_id}', [SliderController::class, 'edit_slider']);
+Route::post('/update-slider/{slider_id}', [SliderController::class, 'update_slider']);
+Route::get('/delete-slider/{slider_id}', [SliderController::class, 'delete_slider']);

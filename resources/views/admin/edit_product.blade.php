@@ -90,7 +90,7 @@
                                     @endforeach
                                 </select>
                             </div>
-                            <button style="width: 300px" type="submit" name="add_product" class="btn btn-info">Cập nhật
+                            <button style="width: 300px" type="submit" name="update_product" class="btn btn-info">Cập nhật
                                 sản phẩm</button>
                         </form>
                     @endforeach

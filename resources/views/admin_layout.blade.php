@@ -109,6 +109,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 {{-- <li><a href="{{URL::to('/add-category')}}">Thêm danh mục sản phẩm</a></li> --}}
                             </ul>
                         </li>
+                        <li class="sub-menu">
+                            <a href="javascript:;">
+                                <i class="fa fa-book"></i>
+                                <span>Sliders</span>
+                            </a>
+                            <ul class="sub">
+                                {{-- <li><a href="{{ URL::to('/all-category') }}">Danh mục sản phẩm</a></li> --}}
+                                <li><a href="{{ URL::to('/all-slider') }}">Danh sách slider</a></li>
+                                {{-- <li><a href="{{URL::to('/add-category')}}">Thêm danh mục sản phẩm</a></li> --}}
+                            </ul>
+                        </li>
                         {{-- <li class="sub-menu">
                             <a href="javascript:;">
                                 <i class="fa fa-book"></i>
