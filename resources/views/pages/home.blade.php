@@ -109,30 +109,6 @@
                                 </div>
                             </div>
                         @endforeach
-<<<<<<< HEAD
-                    </div>
-                </div>
-                @foreach ($categories as $item)
-                    <div id="product-{{ $item->id }}" class="tab-pane padding-20-row-col">
-                        <div class="row">
-                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-                                <div class="product-wrap mb-60">
-                                    <div class="product-img default-overlay mb-25">
-                                        <a href="product-details.html">
-                                            <img class="default-img" src="../assets/images/product/product-31.jpg"
-                                                alt="">
-                                            <span
-                                                class="badge-black badge-left-20 badge-top-20 badge-width-height-2 badge-border-radius-100">-14.3%</span>
-                                        </a>
-                                        <div class="product-action product-action-position-1">
-                                            <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i
-                                                    class="fa fa-eye"></i><span>Quick Shop</span></a>
-                                            <a title="Add to Wishlist" href="#"><i class="fa fa-heart"></i><span>Add to
-                                                    Wishlist</span></a>
-                                            <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
-                                                    Cart</span></a>
-                                        </div>
-=======
                         {{-- <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                             <div class="product-wrap mb-50">
                                 <div class="product-img default-overlay mb-25">
@@ -1331,7 +1307,6 @@
                                                 class="dlicon arrows-4_compare"></i><span>Add to Compare</span></a>
                                         <a title="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i><span>Add to
                                                 Cart</span></a>
->>>>>>> 146515e4b30562986e90767b6740074523e87fdc
                                     </div>
                                     <div class="product-content-4 title-font-width-400 text-center">
                                         <h3><a href="product-details.html">Dapibus ac mi shoes</a></h3>

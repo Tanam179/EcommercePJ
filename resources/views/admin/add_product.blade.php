@@ -72,9 +72,9 @@
                                 <option value="1">Đúng</option>
                             </select>
                         </div>
-                        <div class="form-group seller-percent" style="display: none">
+                        <div class="form-group sale-percent" style="display: none">
                             <label for="exampleInputPassword1">Mức giảm giá (%)</label>
-                            <input type="number" name="product_sale_percent" class="form-control input-sm m-bot15" placeholder="%" id="exampleInputEmail1">
+                            <input type="number" value="0" name="product_sale_percent" class="form-control input-sm m-bot15 sale-percent-input" placeholder="0" id="exampleInputEmail1">
                                 {{-- <option value="0">0%</option>
                                 <option value="10">10%</option>
                                 <option value="15">15%</option>
@@ -135,15 +135,17 @@
         const e = document.querySelector('.best-seller');
         e.addEventListener('change', function() {
             if(e.options[e.selectedIndex].value == 1){
-                document.querySelector('.seller-percent').style.display = 'block';
+                document.querySelector('.sale-percent').style.display = 'block';
+
             }
             else{
-                document.querySelector('.seller-percent').style.display = 'none';
+                document.querySelector('.sale-percent').style.display = 'none';
+                
             }
         })
         
         //Reset input file
-        $('input[type="file"][name="product_img"]').val('');
+        // $('input[type="file"][name="product_img"]').val('');
 
         $('input[type="file"][name="product_img"]').on('change', function() {
             const img_path = $(this)[0].value;

@@ -166,28 +166,28 @@
         // })
         
         //Reset input file
-        $('input[type="file"][name="product_img"]').val('');
+        // $('input[type="file"][name="product_img"]').val('');
 
-        $('input[type="file"][name="product_img"]').on('change', function() {
-            const img_path = $(this)[0].value;
-            const img_holder = $('.img-holder');
-            const extension =  img_path.substring(img_path.lastIndexOf('.')+ 1).toLowerCase();
-            if(extension == 'jpeg' || extension == 'jpg' || extension == 'png'){
-                if(typeof(FileReader) != 'undefined'){
-                    img_holder.empty();
-                    const reader = new FileReader();
-                    reader.onload = function(e){
-                        $('<img/>', {'src':e.target.result, 'class':'img-fluid','style': 'width: 150px; margin-bottom: 10px; margin-top: 10px'}).appendTo(img_holder);
-                        $('.preview-img').css("display", "none");
-                    }
-                    img_holder.show();
-                    reader.readAsDataURL($(this)[0].files[0]);
-                }else{
-                    $(img_holder).html('Định dạng này không được hỗ trợ');
-                }
-            }else{
-                $(img_holder).empty();
-            }
-        })
+        // $('input[type="file"][name="product_img"]').on('change', function() {
+        //     const img_path = $(this)[0].value;
+        //     const img_holder = $('.img-holder');
+        //     const extension =  img_path.substring(img_path.lastIndexOf('.')+ 1).toLowerCase();
+        //     if(extension == 'jpeg' || extension == 'jpg' || extension == 'png'){
+        //         if(typeof(FileReader) != 'undefined'){
+        //             img_holder.empty();
+        //             const reader = new FileReader();
+        //             reader.onload = function(e){
+        //                 $('<img/>', {'src':e.target.result, 'class':'img-fluid','style': 'width: 150px; margin-bottom: 10px; margin-top: 10px'}).appendTo(img_holder);
+        //                 $('.preview-img').css("display", "none");
+        //             }
+        //             img_holder.show();
+        //             reader.readAsDataURL($(this)[0].files[0]);
+        //         }else{
+        //             $(img_holder).html('Định dạng này không được hỗ trợ');
+        //         }
+        //     }else{
+        //         $(img_holder).empty();
+        //     }
+        // })
     </script>
 @endsection
