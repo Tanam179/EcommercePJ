@@ -80,11 +80,9 @@
                             </div>
                             
                             <div class="form-group seller-percent" style="display: none">
-                                <label for="exampleInputPassword1">Mức giảm giá</label>
-                                <select name="product_sale_percent" class="form-control input-sm m-bot15">
-                                    <option value="{{$product->sale_percent}}">{{$product->sale_percent}}%</option>
-                                    <option value="">---OPTIONS---</option>
-                                    <option value="0">0%</option>
+                                <label for="exampleInputPassword1">Mức giảm giá (%)</label>
+                                <input type="number" name="product_sale_percent" class="form-control input-sm m-bot15" placeholder="%" id="exampleInputEmail1" value="{{$product->sale_percent}}">
+                                    {{-- <option value="0">0%</option>
                                     <option value="10">10%</option>
                                     <option value="15">15%</option>
                                     <option value="20">20%</option>
@@ -102,8 +100,8 @@
                                     <option value="80">80%</option>
                                     <option value="85">85%</option>
                                     <option value="90">90%</option>
-                                    <option value="95">95%</option>
-                                </select>
+                                    <option value="95">95%</option> --}}
+                                </input>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Là sản phẩm đang bán chạy??</label>
@@ -156,6 +154,16 @@
                 document.querySelector('.seller-percent').style.display = 'none';
             }
         })
+
+        // window.addEventListener('load', function() {
+        //     // if(e.options[e.selectedIndex].value == 1){
+        //     //     document.querySelector('.seller-percent').style.display = 'block';
+        //     // }
+        //     // else{
+        //     //     document.querySelector('.seller-percent').style.display = 'none';
+        //     // }
+        //     document.querySelector('.input[type="file"][name="product_img"]').value =
+        // })
         
         //Reset input file
         $('input[type="file"][name="product_img"]').val('');
