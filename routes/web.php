@@ -58,3 +58,6 @@ Route::post('/save-slider', [SliderController::class, 'save_slider']);
 Route::get('/edit-slider/{slider_id}', [SliderController::class, 'edit_slider']);
 Route::post('/update-slider/{slider_id}', [SliderController::class, 'update_slider']);
 Route::get('/delete-slider/{slider_id}', [SliderController::class, 'delete_slider']);
+
+//PRODUCT-DETAILS
+Route::get('/product-details/{product_id}', [ProductController::class, 'product_detail']);

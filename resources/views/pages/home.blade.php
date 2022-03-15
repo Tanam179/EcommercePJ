@@ -80,7 +80,7 @@
                             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                                 <div class="product-wrap mb-60">
                                     <div class="product-img default-overlay mb-25">
-                                        <a href="product-details.html">
+                                        <a href="{{URL::to('/product-details/'.$product->id)}}">
                                             <img class="default-img" src="/upload/products/{{ $product->img }}" alt="">
                                             {{-- <span
                                                 class="badge-black badge-left-20 badge-top-20 badge-width-height-2 badge-border-radius-100">-14.3%</span> --}}
@@ -1319,11 +1319,7 @@
                             </div>
                         </div>
                     </div>
-<<<<<<< HEAD
-                @endforeach
-=======
                 </div> --}}
->>>>>>> 146515e4b30562986e90767b6740074523e87fdc
             </div>
         </div>
     </div>
@@ -1333,20 +1329,6 @@
                 <h2>Sản phẩm bán chạy</h2>
             </div>
             <div class="featured-slider-active owl-carousel dot-style-2 dot-style-2-inc">
-<<<<<<< HEAD
-                @foreach ($products as $product)
-                    <div class="banner-wrap default-overlay banner-zoom mb-10">
-                        <div class="banner-img">
-                            <a href="product-details.html"><img src="/upload/products/{{ $product->img }}"
-                                    alt="banner"></a>
-                        </div>
-                        <div class="banner-content-10">
-                            <h3><a href="#">{{ $product->name }}</a></h3>
-                        </div>
-                    </div>
-                @endforeach
-
-=======
                 @foreach($products_best_seller as $best_sell)
                 <div class="banner-wrap default-overlay banner-zoom mb-10">
                     <div class="banner-img">
@@ -1385,7 +1367,6 @@
                     </div>
                 </div> --}}
                 @endforeach
->>>>>>> 146515e4b30562986e90767b6740074523e87fdc
             </div>
         </div>
     </div>

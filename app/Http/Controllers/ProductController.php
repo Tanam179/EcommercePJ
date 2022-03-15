@@ -63,12 +63,12 @@ class ProductController extends Controller
 
 
         $get_img = $request->product_img;
-        if ($get_img) {
-            $get_name_img = $get_img->getClientOriginalName();
-            $name_img = current(explode('.', $get_name_img));
-            $new_img = $name_img . '.' . $get_img->getClientOriginalExtension();
-            $get_img->move('upload/products', $new_img);
-        }
+
+        $get_name_img = $get_img->getClientOriginalName();
+        $name_img = current(explode('.', $get_name_img));
+        $new_img = $name_img . '.' . $get_img->getClientOriginalExtension();
+        $get_img->move('upload/products', $new_img);
+
 
         ProductModel::create([
             'name' => $request->product_name,
@@ -81,7 +81,7 @@ class ProductController extends Controller
             'status' => $request->product_status,
             'cate_id' => $request->product_category_id,
             'img' => $new_img,
-        ]);
+         ]);
 
 
         return redirect('/all-product')->with('message', 'Thêm sản phẩm thành công');
@@ -90,6 +90,7 @@ class ProductController extends Controller
     public function edit_product($product_id)
     {
         $edit_product = ProductModel::where('id', $product_id)->get();
+        // return dd($edit_product);
         $all_product_cate = CategoryModel::all();
         // $manager_category_product = view('admin.edit_category');
         return view('admin.edit_product')/*->with('admin.edit_category', $manager_category_product)*/->with('edit_product', $edit_product)->with('all_product_cate', $all_product_cate);
@@ -99,26 +100,24 @@ class ProductController extends Controller
     {
         // return dd($request->all);
         $get_img = $request->product_img;
-        if ($get_img) {
-            $get_name_img = $get_img->getClientOriginalName();
-            $name_img = current(explode('.', $get_name_img));
-            $new_img = $name_img . '.' . $get_img->getClientOriginalExtension();
-            $get_img->move('upload/products', $new_img);
+        $get_name_img = $get_img->getClientOriginalName();
+        $name_img = current(explode('.', $get_name_img));
+        $new_img = $name_img . '.' . $get_img->getClientOriginalExtension();
+        $get_img->move('upload/products', $new_img);
 
-            ProductModel::where('id', $product_id)->update([
-                'name' => $request->product_name,
-                'desc' => $request->product_desc,
-                'price' => $request->product_price,
-                'content' => $request->product_content,
-                'sale' => $request->product_sale,
-                'sale_percent' => $request->product_sale_percent,
-                'best_seller' => $request->product_best_seller,
-                'status' => $request->product_status,
-                'cate_id' => $request->product_category_id,
-                'img' => $new_img,
-            ]);
-            
-        }
+        ProductModel::where('id', $product_id)->update([
+            'name' => $request->product_name,
+            'desc' => $request->product_desc,
+            'price' => $request->product_price,
+            'content' => $request->product_content,
+            'sale' => $request->product_sale,
+            'sale_percent' => $request->product_sale_percent,
+            'best_seller' => $request->product_best_seller,
+            'status' => $request->product_status,
+            'cate_id' => $request->product_category_id,
+            'img' => $new_img,
+        ]);
+
         return redirect('/all-product')->with('message', 'Cập nhật sản phẩm thành công');
     }
 
@@ -127,5 +126,15 @@ class ProductController extends Controller
     {
         ProductModel::where('id', $product_id)->delete();
         return redirect()->back()->with('message', 'Xóa sản phẩm thành công');
+    }
+
+    public function product_detail($product_id)
+    {
+        $product_detail = ProductModel::where('id', $product_id)->first();
+        // return dd($product_detail);
+        $product_relate  = ProductModel::where('cate_id', $product_detail->cate_id)->whereNotIn('id', $product_detail)->get();
+        // return dd($product_relate);
+
+        return view('pages.product_details')->with('product_detail', $product_detail)->with('product_relate', $product_relate);
     }
 }
