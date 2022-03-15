@@ -62,9 +62,47 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Là sản phẩm đang giảm giá??</label>
-                                <select name="product_sale" class="form-control input-sm m-bot15">
+                                <select name="product_sale" class="form-control input-sm m-bot15 best-seller">
+                                    <option selected value="{{$product->sale}}">
+                                        <?php
+                                            if($product->sale == 1){
+                                                echo 'Đúng';
+                                            }
+                                            else{
+                                                echo 'Không';
+                                            }
+                                        ?>
+                                    </option>
+                                    <option value="">---OPTIONS---</option>
                                     <option value="0">Không</option>
                                     <option value="1">Đúng</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group seller-percent" style="display: none">
+                                <label for="exampleInputPassword1">Mức giảm giá</label>
+                                <select name="product_sale_percent" class="form-control input-sm m-bot15">
+                                    <option value="{{$product->sale_percent}}">{{$product->sale_percent}}%</option>
+                                    <option value="">---OPTIONS---</option>
+                                    <option value="0">0%</option>
+                                    <option value="10">10%</option>
+                                    <option value="15">15%</option>
+                                    <option value="20">20%</option>
+                                    <option value="25">25%</option>
+                                    <option value="30">30%</option>
+                                    <option value="35">35%</option>
+                                    <option value="40">40%</option>
+                                    <option value="45">45%</option>
+                                    <option value="50">50%</option>
+                                    <option value="55">55%</option>
+                                    <option value="60">60%</option>
+                                    <option value="65">65%</option>
+                                    <option value="70">70%</option>
+                                    <option value="75">75%</option>
+                                    <option value="80">80%</option>
+                                    <option value="85">85%</option>
+                                    <option value="90">90%</option>
+                                    <option value="95">95%</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -90,7 +128,7 @@
                                     @endforeach
                                 </select>
                             </div>
-                            <button style="width: 300px" type="submit" name="add_product" class="btn btn-info">Cập nhật
+                            <button style="width: 300px" type="submit" name="update_product" class="btn btn-info">Cập nhật
                                 sản phẩm</button>
                         </form>
                     @endforeach
@@ -99,6 +137,26 @@
         </section>
     </div>
     <script>
+
+        const e = document.querySelector('.best-seller');
+        e.addEventListener('change', function() {
+            if(e.options[e.selectedIndex].value == 1){
+                document.querySelector('.seller-percent').style.display = 'block';
+            }
+            else{
+                document.querySelector('.seller-percent').style.display = 'none';
+            }
+        })
+
+        window.addEventListener('load', function() {
+            if(e.options[e.selectedIndex].value == 1){
+                document.querySelector('.seller-percent').style.display = 'block';
+            }
+            else{
+                document.querySelector('.seller-percent').style.display = 'none';
+            }
+        })
+        
         //Reset input file
         $('input[type="file"][name="product_img"]').val('');
 

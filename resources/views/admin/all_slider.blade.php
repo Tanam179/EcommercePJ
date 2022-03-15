@@ -3,7 +3,7 @@
     <div class="table-agile-info">
         <div class="panel panel-default">
             <div class="ml-auto panel-heading">
-               Danh sách sản phẩm
+               Danh sách slider
             </div>
             <div class="row w3-res-tb">
                 <div class="col-sm-4 m-b-xs">
@@ -18,13 +18,13 @@
                 <div class="col-sm-6">
                 </div>
                 <div class="col-sm-2">
-                    <a style="font-size: 14px; display: block" href="{{ URL::to('/add-product') }}"
+                    <a style="font-size: 14px; display: block" href="{{ URL::to('/add-slider') }}"
                         class="btn btn-sm btn-primary"><i class="fa fa-plus" style="margin-right: 10px"
                             aria-hidden="true"></i>Thêm
-                        sản phẩm</a>
+                        ảnh slider</a>
                 </div>
             </div>
-            @if($hasProduct)
+            @if($hasSlider)
             <div class="table-responsive">
                 <table class="table table-striped b-t b-light">
                     <thead>
@@ -34,11 +34,9 @@
                                     <input type="checkbox"><i></i>
                                 </label>
                             </th>
-                            <th>Tên sản phẩm</th>
-                            <th>Giá</th>
+                            <th>Tên slider</th>
                             <th>Hình ảnh sản phẩm</th>
-                            <th>Danh mục sản phẩm</th>
-                            <th>Hiển thị</th>
+                            <th>Trạng thái slider</th>
                             <th>Tùy chọn</th>
                         </tr>
                     </thead>
@@ -49,39 +47,36 @@
                             </span>
                         @endif
                         
-                        @foreach ($all_product as $all_pro)
+                        @foreach ($all_slider as $slide)
                             <tr>
-                                <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label>
-                                </td>
-                                <td>{{ $all_pro->name }}</td>
-                                <td><span class="text-ellipsis">{{ $all_pro->price }}</span></td>
-                                <td><span class="text-ellipsis"><img src="/upload/products/{{$all_pro->img}}" width="150px" height="100px"></span></td>
-                                <td><span class="text-ellipsis">{{ $all_pro->cate->name }}</span></td>
-                                {{-- <td><span class="text-ellipsis">{{ $all_pro->created_at->format('d/m/Y') }}</span></td>
-                                <td><span class="text-ellipsis">{{ $all_pro->updated_at->format('d/m/Y') }}</span></td> --}}
+                                <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
+                                <td>{{ $slide->name }}</td>
+                                <td><span class="text-ellipsis"><img src="/upload/sliders/{{$slide->img }}" width="150px" height="100px"></span></td>
+                                {{-- <td><span class="text-ellipsis">{{ $slide->created_at->format('d/m/Y') }}</span></td>
+                                <td><span class="text-ellipsis">{{ $slide->updated_at->format('d/m/Y') }}</span></td> --}}
                                 <td><span class="text-ellipsis">
                                         <?php
-                                            if($all_pro->status == false){
+                                            if($slide->status == false){
                                         ?>
-                                        <a style="color: #fff; width: 80px; font-size: 14px" class="btn btn-danger" href="{{ URL::to('/active-product/'.$all_pro->id) }}"><span
+                                        <a style="color: #fff; width: 80px; font-size: 14px" class="btn btn-danger" href="{{ URL::to('/active-slider/'.$slide->id) }}"><span
                                                 >Ẩn</span></a>
                                         <?php
                                             }
                                         else {
                                         ?>
-                                        <a style="color: #fff; width: 80px; font-size: 14px" class="btn btn-info" href="{{ URL::to('/unactive-product/'.$all_pro->id) }}"><span
+                                        <a style="color: #fff; width: 80px; font-size: 14px" class="btn btn-info" href="{{ URL::to('/unactive-slider/'.$slide->id) }}"><span
                                                 >Hiển thị</span></a>
                                         <?php
                                         }
                                         ?>
                                     </span></td>
                                 <td style="display: flex; align-items: center ; font-size: 20px">
-                                    <a href="{{ URL::to('/edit-product/' . $all_pro->id) }}"
+                                    <a href="{{ URL::to('/edit-slider/' . $slide->id) }}"
                                         class="active" ui-toggle-class=""><i style="color: #12b886;"
                                             class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                     <a onclick="return confirm('Bạn có chắc là muốn xóa sản phẩm này không?')"
                                         style="margin-left: 10px"
-                                        href="{{ URL::to('/delete-product/'. $all_pro->id) }}"
+                                        href="{{ URL::to('/delete-slider/'. $slide->id) }}"
                                         class="active" ui-toggle-class=""><i style="color: #f03e3e;"
                                             class="fa fa-trash-o" aria-hidden="true"></i></a>
                                 </td>

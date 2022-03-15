@@ -44,7 +44,7 @@ class ProductController extends Controller
             "product_desc" => "required",
             "product_price" => "required",
             "product_content" => "required",
-            "product_img" => "required|mimes:jpg,png,jpeg,gif,svg",
+            "product_img" => "required|image",
             "product_category_id" => "required",
 
         ], [
@@ -54,7 +54,7 @@ class ProductController extends Controller
             "product_content.required" => "(* Vui lòng nhập nội dung sản phẩm)",
             "product_img.required" => "(* Vui lòng thêm hình ảnh sản phẩm)",
             "product_category_id.required" => "(* Vui lòng chọn loại sản phẩm)",
-            "product_img.mimes" => "(* Xin lỗi, định dạng này không được hỗ trợ)",
+            "product_img.image" => "(* Xin lỗi, định dạng này không được hỗ trợ)",
         ]);
         if ($validator->fails()) {
             return back()->withErrors($validator->getMessageBag())->withInput()->with('error_message', 'Có lỗi khi thêm sản phẩm, vui lòng thêm lại');/*->status(400)*/;
@@ -67,7 +67,7 @@ class ProductController extends Controller
             $get_name_img = $get_img->getClientOriginalName();
             $name_img = current(explode('.', $get_name_img));
             $new_img = $name_img . '.' . $get_img->getClientOriginalExtension();
-            $get_img->move('/upload/products', $new_img);
+            $get_img->move('upload/products', $new_img);
 
             ProductModel::create([
                 'name' => $request->product_name,
@@ -75,6 +75,7 @@ class ProductController extends Controller
                 'price' => $request->product_price,
                 'content' => $request->product_content,
                 'sale' => $request->product_sale,
+                'sale_percent' => $request->product_sale_percent,
                 'best_seller' => $request->product_best_seller,
                 'status' => $request->product_status,
                 'cate_id' => $request->product_category_id,
@@ -96,6 +97,7 @@ class ProductController extends Controller
 
     public function update_product(Request $request, $product_id)
     {
+        // return dd($request->all);
         $get_img = $request->product_img;
         if ($get_img) {
             $get_name_img = $get_img->getClientOriginalName();
@@ -109,6 +111,7 @@ class ProductController extends Controller
                 'price' => $request->product_price,
                 'content' => $request->product_content,
                 'sale' => $request->product_sale,
+                'sale_percent' => $request->product_sale_percent,
                 'best_seller' => $request->product_best_seller,
                 'status' => $request->product_status,
                 'cate_id' => $request->product_category_id,
